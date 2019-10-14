@@ -1,0 +1,3 @@
+com\wl\springcloud\config\CorsConfig.class
+com\wl\springcloud\filter\WebFilter.class
+com\wl\springcloud\ZuulApplication.class

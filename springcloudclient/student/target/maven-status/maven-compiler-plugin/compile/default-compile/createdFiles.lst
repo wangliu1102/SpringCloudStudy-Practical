@@ -1,0 +1,5 @@
+com\wl\springcloud\service\impl\StudentServcieImpl.class
+com\wl\springcloud\StudentApplication.class
+com\wl\springcloud\controller\StudentController.class
+com\wl\springcloud\dao\StudentMapper.class
+com\wl\springcloud\service\IStudentService.class

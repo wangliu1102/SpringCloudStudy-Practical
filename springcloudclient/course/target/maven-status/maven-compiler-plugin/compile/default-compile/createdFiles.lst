@@ -1,0 +1,5 @@
+com\wl\springcloud\CourseApplication.class
+com\wl\springcloud\service\impl\CourseServiceImpl.class
+com\wl\springcloud\controller\CourseController.class
+com\wl\springcloud\service\ICourseService.class
+com\wl\springcloud\dao\CourseMapper.class

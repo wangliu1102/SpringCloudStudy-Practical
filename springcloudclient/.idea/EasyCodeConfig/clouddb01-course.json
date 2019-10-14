@@ -1,0 +1,24 @@
+{
+  "name" : "Course",
+  "comment" : null,
+  "fullColumn" : [ {
+    "name" : "id",
+    "comment" : null,
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "name",
+    "comment" : null,
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  } ],
+  "pkColumn" : null,
+  "otherColumn" : null,
+  "savePackageName" : "com.wl.springcloud.dao",
+  "savePath" : "./course/src/main/java/com/wl/springcloud/dao",
+  "saveModelName" : "course"
+}

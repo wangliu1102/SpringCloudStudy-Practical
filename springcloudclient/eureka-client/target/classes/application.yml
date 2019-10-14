@@ -1,0 +1,10 @@
+server:
+  port: 8001
+spring:
+   application:
+    name: 'eureka-client'
+
+eureka:
+  client: #客户端注册进eureka服务列表内
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/

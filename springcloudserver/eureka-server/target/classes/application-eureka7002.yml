@@ -1,0 +1,5 @@
+server:
+  port: 7002
+eureka:
+  instance:
+    hostname: eureka7002.com

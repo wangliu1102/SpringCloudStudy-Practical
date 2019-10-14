@@ -1,0 +1,6 @@
+com\wl\springcloud\entity\Student.class
+com\wl\springcloud\feginservice\CourseFeginFallbackFactory.class
+com\wl\springcloud\entity\Course.class
+com\wl\springcloud\feginservice\CourseFeginFallbackFactory$1.class
+com\wl\springcloud\feginservice\CourseFegin.class
+com\wl\springcloud\feginservice\CourseFeginFallback.class

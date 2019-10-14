@@ -1,0 +1,32 @@
+server:
+  port: 9527
+spring:
+  application:
+    name: gateway
+#prefix表示访问前缀，ignored-services忽略所有请求，不包括zuul.routes指定的路径,
+#zuul:
+#  prefix: /abc
+#  ignored-services: "*"
+
+# routes to serviceId 这里边是通过serviceId来绑定地址，当在路径后添加/api-a/   则是访问service-A对应的服务。
+# ** 表示多层级，*表示单层级
+zuul:
+  routes:
+    defalutApi.path: /api/**
+    defalutApi.serviceId: student
+    apiB.path: /admin/**
+    apiB.serviceId: course
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka
+  instance:
+      instance-id: gateway9527 #自定义服务名称信息
+      prefer-ip-address: true #访问路径可以显示IP地址
+
+info:
+  app.name: springcloud-server
+  company.name: www.wangliu.com
+  build.artifactId: '@project.artifactId@'
+  build.version: '@project.version@'
