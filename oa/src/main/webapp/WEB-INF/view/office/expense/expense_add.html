@@ -1,0 +1,35 @@
+@layout("/common/_container.html"){
+<div class="ibox float-e-margins">
+    <div class="ibox-content">
+        <div class="form-horizontal" id="expenseInfoForm">
+            <input type="hidden" id="id" value="">
+            <div class="row">
+                <div class="col-sm-6 b-r">
+                    <#input id="title" name="标题" underline="true"/>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" style="padding-top: 32px;">备注</label>
+                        <div class="col-sm-9">
+                            <textarea rows="3" cols="20" class="form-control" id="comment" name="comment" type="text" placeholder="备注"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <#input id="money" name="金额" underline="true"/>
+                    <#input id="fileName" name="附件地址" readonly="readonly"/>
+                    <div id="upload" style="float: right;">
+                        <#button id="upload" name="上传附件" icon="fa-upload" clickFun="ExpenseInfoDlg.uploadFile()" space="true" />
+                    </div>
+                    <input id="file" type="file" underline="true" style="display: none" onchange="changeFile(event,this.value)"/>
+                </div>
+            </div>
+            <div class="row btn-group-m-t">
+                <div class="col-sm-10">
+                    <#button btnCss="info" name="提交" id="ensure" icon="fa-check" clickFun="ExpenseInfoDlg.addSubmit()"/>
+                    <#button btnCss="danger" name="取消" id="cancel" icon="fa-eraser" clickFun="ExpenseInfoDlg.close()"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="${ctxPath}/static/modular/office/expense/expense_info.js?v=${version}"></script>
+@}

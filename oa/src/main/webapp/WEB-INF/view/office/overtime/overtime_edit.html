@@ -1,0 +1,33 @@
+@layout("/common/_container.html"){
+<div class="ibox float-e-margins">
+    <div class="ibox-content">
+        <div class="form-horizontal" id="overtimeInfoForm">
+            <input type="hidden" id="id" value="${OverTime.id}">
+            <div class="row">
+                <div class="col-sm-6 b-r">
+					<#input id="title" value="${OverTime.title}" name="标题" underline="true"/>
+					<#input id="startTime" value="${OverTime.startTime}" name="起始时间" underline="true" pattern="time"/>
+					<#input id="endTime" value="${OverTime.endTime}"  name="结束时间" underline="true" pattern="time"/>
+                </div>
+                <div class="col-sm-6 b-r">
+					<#dictSelector  id="type" name ="type" code="overtime_type" label="类型" underline="true" placeholder="-请选择-"  value="${OverTime.type}"/>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" style="padding-top: 30px;">加班内容</label>
+                        <div class="col-sm-9">
+                            <textarea rows="3" cols="20" class="form-control" id="content" name="content" type="text" >${OverTime.content}</textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row btn-group-m-t">
+                <div class="col-sm-10">
+                    <#button btnCss="info" name="提交" id="ensure" icon="fa-check" clickFun="OverTimeInfoDlg.editSubmit()"/>
+                    <#button btnCss="danger" name="取消" id="cancel" icon="fa-eraser" clickFun="OverTimeInfoDlg.close()"/>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="${ctxPath}/static/modular/office/overtime/overtime_info.js?v=${version}"></script>
+@}

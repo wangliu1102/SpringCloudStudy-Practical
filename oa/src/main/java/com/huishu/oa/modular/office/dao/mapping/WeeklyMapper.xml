@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huishu.oa.modular.office.dao.WeeklyMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.huishu.oa.modular.office.model.Weekly">
+        <id column="id" property="id"/>
+        <result column="title" property="title"/>
+        <result column="content" property="content"/>
+        <result column="create_time" property="createTime"/>
+        <result column="create_by" property="createBy"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="update_by" property="updateBy"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, title, content,create_time AS createTime, create_By AS createBy, update_time AS updateTime, update_By AS updateBy
+    </sql>
+
+    <select id="weeklyList" resultType="com.huishu.oa.modular.office.model.Weekly">
+        select
+        w.id AS id,
+        w.title AS title,
+        w.content AS content,
+        w.create_time AS createTime,
+        u.name AS createBy,
+        w.update_time AS updateTime,
+        w.update_By AS updateBy
+        from t_weekly w
+        left join sys_user u on w.create_By = u.id
+        <where>
+        <if test="condition != null and condition != ''">
+            and u.name like CONCAT('%',#{condition},'%')
+        </if>
+        <if test="startTime != null and startTime != ''">
+            and (w.create_time <![CDATA[>= ]]> CONCAT(#{startTime},' 00:00:00'))
+        </if>
+        <if test="endTime != null and endTime != ''">
+            and (w.create_time <![CDATA[<= ]]>  CONCAT(#{endTime},' 23:59:59'))
+        </if>      
+       </where>
+        order by w.create_time DESC
+    </select>
+</mapper>

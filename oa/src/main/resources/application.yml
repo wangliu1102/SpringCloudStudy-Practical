@@ -1,0 +1,112 @@
+server:
+  port: 8080
+
+oa:
+  swagger-open: true              #是否开启swagger (true/false)
+  kaptcha-open: false             #是否开启登录时验证码 (true/false)
+  file-upload-mapping: /upload/
+  file-upload-path: /home/oa/upload/     #文件上传目录(不配置的话为java.io.tmpdir目录)
+  spring-session-open: false      #是否开启spring session,如果是多机环境需要开启(true/false)
+  session-invalidate-time: 1800     #session失效时间(只在单机环境下生效，多机环境在SpringSessionConfig类中配置) 单位：秒
+  session-validation-interval: 900  #多久检测一次失效的session(只在单机环境下生效) 单位：秒
+  version: 1.0.5
+
+beetl:
+  resource-auto-check: true       #热加载beetl模板，开发时候用
+
+spring:
+  profiles:
+    active: dev
+  mvc:
+    static-path-pattern: /static/**
+    view:
+      prefix: /WEB-INF/view
+  devtools:
+    restart:
+      enabled: false
+      additional-paths: src/main/java
+      exclude: static/**,WEB-INF/view/**
+  servlet:
+    multipart:
+      max-request-size: 100MB
+      max-file-size: 100MB
+  # redis配置，以下有默认配置的也可以使用默认配置
+  redis:
+    database: 15
+    host: 47.99.241.160
+    port: 6379
+    password: ahhs2019
+    jedis:
+      pool:
+        #最大连接数据库连接数,设 0 为没有限制
+        max-active: 8
+        #最大等待连接中的数量,设 0 为没有限制
+        max-idle: 8
+        #最大建立连接等待时间。如果超过此时间将接到异常。设为-1表示无限制。
+        max-wait: -1ms
+        #最小等待连接中的数量,设 0 为没有限制
+        min-idle: 0
+  application:
+    name: oa
+
+mybatis-plus:
+  typeAliasesPackage: com.huishu.oa.modular.system.model
+  configuration:
+    log-impl: org.apache.ibatis.logging.nologging.NoLoggingImpl
+
+log:
+  path: oa-logs
+
+eureka:
+  client: #客户端注册进eureka服务列表内
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/
+  instance:
+    instance-id: oa8080 #自定义服务名称信息
+    prefer-ip-address: true #访问路径可以显示IP地址
+info:
+  app.name: springcloud-server
+  company.name: www.wangliu.com
+  build.artifactId: '@project.artifactId@'
+  build.version: '@project.version@'
+
+---
+
+spring:
+  profiles: local
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/oa?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&serverTimezone=CTT
+    username: root
+    password: 123456
+    filters: wall,mergeStat
+
+#多数据源情况的配置
+oa:
+  muti-datasource:
+    open: false
+    url: jdbc:mysql://192.168.1.200:3306/oa?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&serverTimezone=CTT
+    username: root
+    password: 123456
+    dataSourceNames:
+    - dataSourceOa
+    - dataSourceBiz
+
+---
+spring:
+  profiles: dev
+  datasource:
+    url: jdbc:mysql://192.168.1.200:3306/oa?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&serverTimezone=CTT
+    username: root
+    password: 123456
+    filters: wall,mergeStat
+
+---
+
+spring:
+  profiles: produce
+  datasource:
+    url: jdbc:mysql://47.99.241.160:3306/oa?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&serverTimezone=CTT
+    username: oa
+    password: ahhs2019
+    filters: wall,mergeStat
+

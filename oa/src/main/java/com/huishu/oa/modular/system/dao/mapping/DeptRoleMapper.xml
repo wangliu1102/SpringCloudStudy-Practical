@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huishu.oa.modular.system.dao.DeptRoleMapper">
+    <insert id="insertBatch">
+        insert into sys_role_dept
+        ( dept_id,role_id)
+        values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (
+            #{item.deptId},
+            #{item.roleId}
+            )
+        </foreach>
+    </insert>
+
+    <delete id="delDeptRoleByRoleId">
+        delete from sys_role_dept where role_id=#{roleId}
+    </delete>
+</mapper>

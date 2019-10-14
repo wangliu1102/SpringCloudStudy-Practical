@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huishu.oa.modular.office.dao.AttendanceExportMapper">
+
+
+
+    <select id="selectExportExcel" resultType="com.huishu.oa.modular.office.model.AttendanceExport">
+        select
+        a.ID AS id, a.WEEK AS week, a.STATE AS state, a.SIGNIN_TIME AS signinTime,
+        a.SIGNOUT_TIME AS signoutTime, a.IP AS ip,  a.CREATE_TIME AS createTime,
+        a.UPDATE_TIME AS updateTime, a.create_by AS createBy, a.update_by AS updateBy,
+        c.name as userName
+        from t_attendance a
+        left join sys_user c on a.create_by = c.id
+        where 1 = 1
+        <if test="startTime != null and startTime !='' and endTime != null and endTime != ''">
+            and (SIGNIN_TIME between CONCAT(#{startTime},' 00:00:00') and CONCAT(#{endTime},' 23:59:59'))
+        </if>
+
+        <if test="condition != null and condition != '' ">
+            and create_by like CONCAT('%',#{condition},'%')
+        </if>
+        order by id DESC
+    </select>
+
+
+
+</mapper>

@@ -1,0 +1,33 @@
+@layout("/common/_container.html"){
+<div class="ibox float-e-margins">
+    <div class="ibox-content">
+        <div class="form-horizontal" id="weeklyInfoForm">
+            <input type="hidden" id="id" value="${weekly.id}">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label">标题</label>
+                        <div class="col-sm-11">
+                            <input class="form-control" id="title" name="title" type="text" value="${weekly.title}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label">内容</label>
+                        <div class="col-sm-11">
+                            <textarea id="content" style="width:100%;height:100px">${weekly.content}</textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row btn-group-m-t">
+                <div class="col-sm-10">
+                    <#button btnCss="info" name="提交" id="ensure" icon="fa-check" clickFun="WeeklyInfoDlg.editSubmit()"/>
+                    <#button btnCss="danger" name="取消" id="cancel" icon="fa-eraser" clickFun="WeeklyInfoDlg.close()"/>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="${ctxPath}/static/modular/office/weekly/weekly_info.js?v=${version}"></script>
+@}

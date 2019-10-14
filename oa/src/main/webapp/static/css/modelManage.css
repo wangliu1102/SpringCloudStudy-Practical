@@ -1,0 +1,19 @@
+body{
+    font-family:'微软雅黑','黑体',serif,'宋体';color:#4d6287;font-size:12px;
+}
+.allClass {
+    margin: 110px 500px;
+}
+
+table tr td {
+    text-align: center;
+}
+
+tr {
+    height: 180px;
+}
+
+td {
+    cursor: pointer;
+    width: 200px;
+}

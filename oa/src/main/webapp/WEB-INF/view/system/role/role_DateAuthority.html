@@ -1,0 +1,123 @@
+@layout("/common/_container.html"){
+
+<script type="text/javascript">
+    $(function () {
+        var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
+
+        $("#btn_close").bind("click", function () {
+            parent.layer.close(index);
+        });
+
+        $("#btn_save").bind("click", function () {
+            var deptId = HuiShu.zTreeCheckedNodes("zTree");
+            var dataScope=$("#dataScope").val();
+            var ajax = new $ax(HuiShu.ctxPath + "/role/DateAuthority", function (data) {
+                HuiShu.success("分配数据权限成功!");
+                window.parent.Role.table.refresh();
+                parent.layer.close(index);
+            }, function (data) {
+                HuiShu.error("分配数据权限失败!"
+                    + data.responseJSON.message + "!");
+            });
+            ajax.set("roleId", "${roleId}");
+            ajax.set("deptIds", deptId);
+            ajax.set("dataScope", dataScope);
+            ajax.start();
+        });
+
+        initZtree();
+
+         //初始化数据范围
+            if($("#dataScopeValue").val() == undefined){
+                $("#dataScope").val(0);
+            }else{
+                $("#dataScope").val($("#dataScopeValue").val());
+            }
+                //数据权限
+              authDataScope();
+
+
+              $("#dataScope").change(authDataScope);
+
+    });
+
+    function authDataScope() {
+       if($("#dataScope").val() == 2){
+             $("#authDataScope").show();
+        }else{
+             $("#authDataScope").hide();
+       }
+    }
+
+    function initZtree() {
+        var setting = {
+            check: {
+                enable: true,
+                chkboxType: { "Y": "ps", "N": "ps" }
+            },
+            data: {
+                simpleData: {
+                    enable: true
+                }
+            }
+        };
+
+        var ztree = new $ZTree("zTree", "/dept/deptTreeListByRoleId/"+ "${role.id}");
+        ztree.setSettings(setting);
+        ztree.init();
+    }
+</script>
+
+
+
+<div class="wrapper wrapper-content animated fadeInRight ibox-content">
+		<form class="form-horizontal m" id="form-role-edit" >
+			<input id="roleId" name="roleId" type="hidden" />
+			<div class="form-group">
+				<label class="col-sm-3 control-label ">角色名称：</label>
+				<div class="col-sm-9">
+					<input class="form-control" type="text" name="roleName" id="roleName" value="${role.name}" readonly="true"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label">权限字符：</label>
+				<div class="col-sm-9">
+					<input class="form-control" type="text" name="roleKey" value="${role.roleKey}" id="roleKey"  readonly="true">
+				</div>
+			</div>
+				 <input type="hidden" id="dataScopeValue" value="${role.dataScope}">
+			<div class="form-group">
+					<#select id="dataScope" name="数据范围：">
+						<option value="1">全部数据权限</option>
+						<option value="2">自定义数据权限</option>
+						<option value="3">本部门数据权限</option>
+						<option value="4">本部门及以下数据权限</option>
+						<option value="5">仅本人数据权限</option>
+					</#select>
+			</div>
+			<div class="form-group"  style="text-align: center">
+			<span class="help-block m-b-none"><i class="fa fa-info-circle"></i> 特殊情况下，设置为“自定义数据权限”</span>
+            </div>
+
+			<div class="form-group" id="authDataScope" style="display: none">
+            	<label class="col-sm-3 control-label">数据权限</label>
+                 <div class="col-sm-8">
+                       <div class="ibox-content">
+                             <ul id="zTree" class="ztree"></ul>
+                       </div>
+                 </div>
+           </div>
+			   <div class="row">
+                    <div class="col-md-12">
+                        <button class="btn btn-sm btn-info" type="button" id="btn_save">
+                            <i class="ace-icon fa fa-check bigger-110"></i>保存
+                        </button>
+                        &nbsp;
+                        <button class="btn btn-sm btn-danger" type="button" id="btn_close">
+                            <i class="ace-icon fa fa-close bigger-110"></i>关闭
+                        </button>
+                    </div>
+                </div>
+		</form>
+	</div>
+@}

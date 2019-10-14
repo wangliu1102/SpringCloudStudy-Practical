@@ -1,0 +1,74 @@
+@layout("/common/_container.html"){
+<div class="ibox float-e-margins">
+    <div class="ibox-content">
+        <div class="form-horizontal" id="SysJobInfoForm">
+
+            <input type="hidden" id="id" value="">
+
+            <div class="row">
+                <div class="col-sm-6 b-r">
+                    <#input id="jobName" name="任务名称" underline="true"/>
+
+                    <#input id="methodName" name="方法名称" underline="true"/>
+
+                    <#input id="cronExpression" name="cron表达式" />
+
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-3 control-label">执行策略</label>
+                        <div class="col-sm-9">
+                            <select id="misfirePolicy" name="misfirePolicy" class="form-control">
+                                <option value="0">默认策略</option>
+                                <option value="1">立即执行</option>
+                                <option value="2">执行一次</option>
+                                <option value="3">放弃执行</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-3 control-label">状态</label>
+                        <div class="col-sm-9">
+                            <select id="status" name="status" class="form-control" >
+                                <option value="0">正常</option>
+                                <option value="1">暂停</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-3 control-label">是否并发执行</label>
+                        <div class="col-sm-9">
+                            <select id="concurrent" name="concurrent" class="form-control" >
+                                <option value="0">允许</option>
+                                <option value="1">禁止</option>
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-sm-6">
+                    <#input id="jobGroup" name="任务组名" underline="true"/>
+
+                    <#input id="methodParams" name="方法参数" underline="true"/>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" style="padding-top: 30px;">备注</label>
+                        <div class="col-sm-9">
+                            <textarea rows="3" cols="20" class="form-control" id="remark" name="remark" type="text"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row btn-group-m-t">
+                <div class="col-sm-10">
+                    <#button btnCss="info" name="提交" id="ensure" icon="fa-check" clickFun="SysJobInfo.addSubmit()"/>
+                    <#button btnCss="danger" name="取消" id="cancel" icon="fa-eraser" clickFun="SysJobInfo.close()"/>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="${ctxPath}/static/modular/quartz/job/job_info.js?v=${version}"></script>
+@}

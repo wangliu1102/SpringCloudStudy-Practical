@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huishu.oa.modular.office.dao.BusinessMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.huishu.oa.modular.office.model.Business">
+        <id column="id" property="id"/>
+        <result column="title" property="title"/>
+        <result column="customer" property="customer"/>
+        <result column="reason" property="reason"/>
+        <result column="start_time" property="startTime"/>
+        <result column="end_time" property="endTime"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="create_by" property="createBy"/>
+        <result column="update_by" property="updateBy"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id AS id, title AS title, customer AS customer, city AS city,
+        reason AS reason,start_time AS startTime, end_time AS endTime,
+        create_time AS createTime, update_time AS updateTime,
+        create_by AS createBy, update_by AS updateBy
+    </sql>
+  <!-- 通过查询结果列 -->
+    <select id="selectListCount" resultType="Integer">
+        select count(*)
+        from t_business
+        where 1 = 1
+     <if test="startTime != null and startTime !='' and endTime != null and endTime != ''">
+            and (SIGNIN_TIME between CONCAT(#{startTime},' 00:00:00') and CONCAT(#{endTime},' 23:59:59'))
+        </if>
+       <if test="condition != null and condition != '' ">
+            and create_by like CONCAT('%',#{condition},'%')
+        </if>
+        order by id DESC
+    </select>
+     
+  <select id="selectExportAll" resultType="map">
+          select a.ID AS id, a.TITLE AS title,
+          a.REASON AS reason, a.START_TIME AS startTime,
+          a.END_TIME AS endTime, a.CREATE_TIME AS createTime,
+          a.UPDATE_TIME AS updateTime, a.update_by AS updateBy,
+		  b.name AS city,
+		  c.name AS customer,
+	   	  d.name AS createBy
+	   	  from t_business a
+		  left join sys_dict b on b.code = a.city and b.pid = (select id from sys_dict where code ="business_city")
+		  left join sys_dict c on c.code = a.city and c.pid = (select id from sys_dict where code ="customer")
+          left join sys_user d on a.create_by = d.id
+      <if test="startTime != null and startTime !='' and endTime != null and endTime != ''">
+            and (SIGNIN_TIME between CONCAT(#{startTime},' 00:00:00') and CONCAT(#{endTime},' 23:59:59'))
+        </if>
+
+        <if test="business.title != null and business.title != '' ">
+            and create_by like CONCAT('%',#{business.title},'%') or a.customer like CONCAT('%',#{business.title},'%')
+        </if>
+        order by id DESC
+  
+  </select>
+
+
+    <sql id="selectBusinessVo">
+        select
+        a.ID AS id, a.TITLE AS title, a.CUSTOMER AS customer,
+        a.CITY AS city, a.REASON AS reason, a.START_TIME AS startTime,
+        a.END_TIME AS endTime, a.CREATE_TIME AS createTime,
+        a.UPDATE_TIME AS updateTime, a.CREATE_BY AS createBy,a.UPDATE_by AS updateBy,
+        m.name as customerName,
+        u.name as userName
+        from t_business a
+        left join sys_dict m on m.code = a.customer and m.pid = (select id from sys_dict where code ='customer')
+        left join sys_user u on u.id = a.create_by
+	    left join sys_dept d on u.dept_id = d.id
+    </sql>
+    <select id="list" resultType="map" parameterType="com.baomidou.mybatisplus.plugins.Page">
+       <include refid="selectBusinessVo"/>
+        where 1 = 1     
+        <if test="business.title != null and business.title != '' ">
+            and (u.name like CONCAT('%',#{business.title},'%')
+            or  a.city like CONCAT('%',#{business.title},'%')
+            or  a.customer like CONCAT('%',#{business.title},'%')
+            or  a.title like CONCAT('%',#{business.title},'%'))  
+        </if>
+        <if test="business.startTime != null and business.startTime != ''">
+            and (a.start_time <![CDATA[>= ]]> CONCAT(#{business.startTime},' 00:00:00'))
+        </if>
+        <if test="business.endTime != null and business.endTime != ''">
+            and (a.end_time <![CDATA[<= ]]>  CONCAT(#{business.endTime},' 23:59:59'))
+        </if>
+        <!-- 数据范围过滤 -->
+        ${business.params.dataScope}
+        order by a.create_time DESC
+    </select>
+</mapper>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huishu.oa.modular.office.dao.OvertimeMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.huishu.oa.modular.office.model.Overtime">
+        <id column="id" property="id"/>
+        <result column="type" property="type"/>
+        <result column="title" property="title"/>
+        <result column="content" property="content"/>
+        <result column="start_time" property="startTime"/>
+        <result column="end_time" property="endTime"/>
+        <result column="hours" property="hours"/>
+        <result column="create_time" property="createTime"/>
+        <result column="create_by" property="createBy"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="update_by" property="updateBy"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id,`type`, title,content,hours,
+        start_time AS startTime, end_time AS endTime,
+        create_time AS createTime, create_By AS createBy, update_time AS updateTime, update_By AS updateBy
+    </sql>
+
+    <select id="overtimeList" resultType="com.huishu.oa.modular.office.model.Overtime">
+        select
+        t.id AS id,
+        t.type AS type,
+        t.title AS title,
+        t.content AS content,
+        t.start_time AS startTime,
+        t.end_time AS endTime,
+        t.create_time AS createTime,
+        u.name AS createBy,
+        t.hours AS hours
+        from t_overtime t
+        left join sys_user u on u.id=t.create_by
+        <where>
+            <if test="condition != null and condition != ''">
+                and t.title like CONCAT('%',#{condition},'%') or t.content like CONCAT('%',#{condition},'%') or u.name like CONCAT('%',#{condition},'%')
+            </if>
+            <if test="startTime != null and startTime != ''">
+                and (t.create_time <![CDATA[>= ]]> CONCAT(#{startTime},' 00:00:00'))
+            </if>
+            <if test="endTime != null and endTime != ''">
+                and (t.create_time <![CDATA[<= ]]>  CONCAT(#{endTime},' 23:59:59'))
+            </if>
+          
+        </where>
+
+        order by t.create_time desc
+
+    </select>
+
+</mapper>

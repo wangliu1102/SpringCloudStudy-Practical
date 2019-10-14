@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huishu.oa.modular.system.dao.ConfigMapper">
+
+	<!-- 通用查询映射结果 -->
+	<resultMap id="BaseResultMap"
+		type="com.huishu.oa.modular.system.model.Config">
+		<id column="id" property="id" />
+		<result column="config_name" property="configName" />
+		<result column="config_key" property="configKey" />
+		<result column="config_value" property="configValue" />
+		<result column="config_type" property="configType" />
+		<result column="remark" property="remark" />
+		<result column="create_time" property="createTime" />
+		<result column="create_by" property="createBy" />
+	</resultMap>
+
+	<!-- 通用查询结果列 -->
+	<sql id="Base_Column_List">
+		id, remark, config_name AS configName, config_key AS configKey,
+		config_value AS configValue, config_type AS configType,
+		create_time AS createTime,
+		create_By AS createBy
+	</sql>
+
+	<select id="configList" resultType="map">
+		select
+		s.id AS id,
+		s.config_name AS configName,
+		s.config_key AS configKey,
+		s.config_value AS configValue,
+		case when s.config_Type='Y' then '是' else '否'  end AS configType,
+		s.remark AS remark,
+		s.create_time AS createTime,
+		u.name AS createBy
+		from sys_config s
+		left join sys_user u ON s.create_by=u.id
+		<where>
+			<if test="configName != null and configName != '' ">
+				and s.config_name like CONCAT ('%',#{configName},'%')
+			</if>
+			<if test="configKey != null and configKey != '' ">
+				and s.config_key like CONCAT ('%',#{configKey},'%')
+			</if>
+			<if test="configType != null and configType != '' ">
+				and s.config_Type = '${configType}'
+			</if>
+			<if test="startTime != null and startTime !='' and endTime != null and endTime != ''">
+                and (s.create_time between CONCAT(#{startTime},' 00:00:00') and CONCAT(#{endTime},' 23:59:59'))
+            </if>
+		</where>
+		order by s.id asc
+		
+	</select>
+
+</mapper>
+	
+        

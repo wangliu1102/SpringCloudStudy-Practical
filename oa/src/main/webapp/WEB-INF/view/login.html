@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <title>徽数科技OA办公系统</title>
+    <link rel="shortcut icon" href="${ctxPath}/static/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="${ctxPath}/static/css/login.css?v=${version}">
+    <script>
+        if (window != top)
+            top.location.replace(location.href);
+    </script>
+</head>
+<body>
+<img class="bgone" src="/static/img/bg.jpg">
+<img class="pic" src="/static/img/a.png">
+<div class="table">
+    <div class="wel">
+        徽数科技OA办公系统
+    </div>
+    <div class="wel1">
+        HUI SHU TECHNOLOGY OA SYSTEM
+    </div>
+    <form action="${ctxPath}/login" method="post">
+        <div class="user">
+            <div class="ico_class">
+                <img src="/static/img/yhm.png">
+            </div>
+            <input type="text" name="username" placeholder="用户名|手机号" lay-verify="required" autocomplete="off">
+        </div>
+        <div class="password">
+            <div class="ico_class">
+                <img src="/static/img/mm.png">
+            </div>
+            <input type="password" name="password" placeholder="密码" lay-verify="required" autocomplete="off">
+        </div>
+        <button class="btn" type="submit">登录</button>
+    </form>
+</div>
+<script type="text/javascript" src="${ctxPath}/static/js/jquery-1.8.3.min.js?v=${version}"></script>
+<!--/* 加入contextPath属性和session超时的配置 */-->
+<script type="text/javascript">
+    var HuiShu = {
+        ctxPath: "",
+        addCtx: function (ctx) {
+            if (this.ctxPath === "") {
+                this.ctxPath = ctx;
+            }
+        }
+    };
+    HuiShu.addCtx("${ctxPath}");
+</script>
+<script type="text/javascript" src="${ctxPath}/static/layui/layui.js"></script>
+<script type="text/javascript" src="${ctxPath}/static/js/common.js"></script>
+
+<script>
+    layui.use(['layer', 'form'], function () {
+        var $ = layui.jquery;
+        var layer = layui.layer;
+        var form = layui.form;
+
+        // 表单提交
+        form.on('submit(login-submit)', function (obj) {
+            return true;
+        });
+
+        // 图形验证码
+        // $('.login-captcha').click(function () {
+        //     this.src = this.src + '?t=' + (new Date).getTime();
+        // });
+
+        var errorMsg = "${tips!}";
+        if (errorMsg) {
+            layer.msg(errorMsg, {icon: 5, anim: 6});
+        }
+
+    });
+</script>
+</body>
+</html>

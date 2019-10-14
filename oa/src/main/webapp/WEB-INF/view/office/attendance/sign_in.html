@@ -1,0 +1,64 @@
+@layout("/common/_container.html"){
+<div style="margin-left: 400px;" class="div-body">
+    <table style="width: 500px;">
+        <tr>
+            <td colspan=2>
+                <div class="box">
+                    <ul>
+                        <li><span id="hour"></span><span>时</span></li>
+                        <li><span id="minute"></span><span>分</span></li>
+                        <li><span id="second"></span><span>秒</span></li>
+                    </ul>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td style="padding-right: 80px;cursor: pointer"><img src="${ctxPath}/static/img/signIn.png" id="signIn"/>
+            </td>
+            <td style="cursor: pointer"><img src="${ctxPath}/static/img/signOut.png" id="signOut"/></td>
+        </tr>
+        <tr style="height: 75px;width: 200px;">
+            <td style="padding-left: 40px;"><h3>上班打卡</h3></td>
+            <td style="padding-left: 40px;"><h3>下班打卡</h3></td>
+        </tr>
+    </table>
+    <table style="margin-top:10px;" cellspacing="2">
+        <tr style="height: 40px;width: 200px;">
+            <td style="padding-right: 25px;width:140px">上班打卡时间：</td>
+            <td style="width:170px">${signInTime == "" ? "<h4 style='color: red;width:100px'>未打卡</h4>":signInTime}</td>
+            <td id="lated" style="margin-left: 20px;color:red;padding-left: 40px;width:130px">【迟到】</td>
+        </tr>
+        <tr style="height: 40px;width: 200px;">
+            <td style="padding-right: 25px;width:140px">下班打卡时间：</td>
+            <td style="width:170px">${signOutTime}</td>
+        </tr>
+    </table>
+    <input id="late" value="${state}" type="hidden"/>
+
+    <script type="text/javascript">
+        var hour = document.getElementById('hour');
+        var minute = document.getElementById('minute');
+        var second = document.getElementById('second');
+        function showTime() {
+            var oDate = new Date();
+            var iHours = oDate.getHours();
+            var iMinute = oDate.getMinutes();
+            var iSecond = oDate.getSeconds();
+            hour.innerHTML = AddZero(iHours);
+            minute.innerHTML = AddZero(iMinute);
+            second.innerHTML = AddZero(iSecond);
+        }
+        showTime();
+        setInterval(showTime, 1000);
+        function AddZero(n) {
+            if (n < 10) {
+                return '0' + n;
+            }
+            return '' + n;
+        }
+    </script>
+</div>
+
+<script src="${ctxPath}/static/modular/office/attendance/sign_in.js?v=${version}"></script>
+<link href="${ctxPath}/static/css/sign_in.css?v=${version}" rel="stylesheet">
+@}

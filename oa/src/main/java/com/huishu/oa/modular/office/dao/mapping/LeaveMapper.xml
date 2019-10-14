@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huishu.oa.modular.office.dao.LeaveMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.huishu.oa.modular.office.model.Leave">
+        <id column="id" property="id"/>
+        <result column="title" property="title"/>
+        <result column="dept_id" property="deptId"/>
+        <result column="content" property="content"/>
+        <result column="start_time" property="startTime"/>
+        <result column="end_time" property="endTime"/>
+        <result column="days" property="days"/>
+        <result column="leave_type" property="leaveType"/>
+        <result column="status" property="status"/>
+        <result column="create_time" property="createTime"/>
+        <result column="create_by" property="createBy"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="update_by" property="updateBy"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id AS id, title AS title,
+        dept_id AS deptId,
+        content AS content,
+        start_time AS startTime,
+        end_time AS endTime,
+        days AS days,
+        leave_type as leaveType,
+        status as status,
+        create_time AS createTime, create_By AS createBy, update_time AS updateTime, update_By AS updateBy
+    </sql>
+
+       <sql id="selectLeaveVo">
+      select
+        l.id AS id,
+        l.title AS title,
+        l.dept_id as deptId,
+        l.content AS content,
+        l.start_time AS startTime,
+        l.end_time AS endTime,
+        l.days as days,
+        l.create_time AS createTime,
+        l.leave_type as leaveType,
+        m.name as status,
+        u.name AS createBy
+        from t_leave l
+		left join sys_dict m on m.code = l.status and m.pid = (select id from sys_dict where code="leave_status")
+        left join sys_user u on u.id=l.create_by
+	    left join sys_dept d on u.dept_id = d.id
+    </sql>
+    <select id="leaveList" resultType="java.util.Map">
+       <include refid="selectLeaveVo"/>
+        where l.status != 1
+       
+            <if test="leave.startTime != null and leave.startTime != ''">
+                and (l.start_time <![CDATA[>= ]]> CONCAT(#{leave.startTime},' 00:00:00'))
+            </if>
+            <if test="leave.endTime != null and leave.endTime != ''">
+                and (l.end_time <![CDATA[<= ]]>  CONCAT(#{leave.endTime},' 23:59:59'))
+            </if>
+
+              <if test="leave.content != null and leave.content != '' ">
+                and (l.content like CONCAT('%',#{leave.content},'%') 
+                or l.title like CONCAT('%',#{leave.content},'%')
+                or u.name like CONCAT('%',#{leave.content},'%'))
+            </if>
+            
+            <!-- 数据范围过滤 -->
+            ${leave.params.dataScope}
+     
+        order by l.create_time desc
+    </select>
+
+
+</mapper>
+

@@ -1,0 +1,51 @@
+@layout("/common/_container.html"){
+<div class="row">
+    <div class="col-sm-12">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>请假待审核管理</h5>
+            </div>
+            <div class="ibox-content">
+                <div class="row row-lg">
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <div class="col-sm-3">
+                            <#NameCon id="content" name="标题" />
+                        </div>
+                            <div class="col-sm-3">
+                                <#TimeCon id="startTime" name="开始时间" isTime="false" pattern="YYYY-MM-DD" />
+                            </div>
+                            <div class="col-sm-3">
+                                <#TimeCon id="endTime" name="结束时间" isTime="false" pattern="YYYY-MM-DD" />
+                            </div>
+                            <div class="col-sm-3">
+                                <#button name="搜索" icon="fa-search" clickFun="LeaveWait.search()"/>
+                            </div>
+                        </div>
+                        <div class="hidden-xs" id="LeaveTableToolbar" role="group">                  
+                            
+                            <#button name="查看详情" icon="fa-search" clickFun="LeaveWait.openLeaveDetail()" space="true"/>
+                            <#button name="批准" icon="fa-agree" clickFun="LeaveWait.agreeLeave()" space="true"/>
+                            <#button name="驳回" icon="fa-unagree" clickFun="LeaveWait.unagreeLeave()" space="true"/>
+                                     
+                        </div>
+                        <#table id="LeaveWaitTable"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="${ctxPath}/static/modular/office/leave/leave_wait.js?v=${version}"></script>
+<script>
+    laydate.render({
+        elem:'#startTime'
+    })
+    laydate.render({
+        elem:'#endTime'
+    })
+    
+    
+    
+</script>
+@}

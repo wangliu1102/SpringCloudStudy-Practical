@@ -1,0 +1,52 @@
+@layout("/common/_container.html"){
+<div class="ibox float-e-margins">
+    <div class="ibox-content">
+        <div class="form-horizontal" id="businessInfoForm">
+            <input type="hidden" id="id" value="">
+            <div class="row">
+                <div class="col-sm-9">
+                    <#input id="title" name="标题"  />
+
+                    <#input id="startTime" name="开始时间" />
+
+                    <#input id="endTime" name="结束时间"  />
+
+                     <#dictSelector id="customer" name ="customer" code="customer" label="客户/供应商"  underline="true" placeholder="请选择"  />
+
+                     <#dictSelector id="city" name ="city" code="business_city" label="目的城市"  underline="true" placeholder="请选择"   />
+
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" style="padding-top: 30px;">事由</label>
+                        <div class="col-sm-9">
+                            <textarea rows="3" cols="20" class="form-control" id="reason" name="reason" type="text" ></textarea>
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                </div>
+            </div>
+
+            <div class="row btn-group-m-t">
+                <div class="col-sm-10">
+                    <#button btnCss="info" name="提交" id="ensure" icon="fa-check" clickFun="BusinessInfoDlg.addSubmit()"/>
+                    <#button btnCss="danger" name="取消" id="cancel" icon="fa-eraser" clickFun="BusinessInfoDlg.close()"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="${ctxPath}/static/modular/office/business/business_info.js?v=${version}"></script>
+<script>
+    laydate.render({
+        elem: '#startTime',
+        type: 'datetime',
+        format:'yyyy-MM-dd HH:mm:ss'
+    });
+    //渲染时间选择框
+    laydate.render({
+        elem: '#endTime',
+        type: 'datetime',
+        format:'yyyy-MM-dd HH:mm:ss'
+    });
+</script>
+@}

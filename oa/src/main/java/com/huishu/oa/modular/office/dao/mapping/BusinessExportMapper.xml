@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huishu.oa.modular.office.dao.BusinessExportMapper">
+
+
+
+    <select id="selectExportExcel" resultType="com.huishu.oa.modular.office.model.BusinessExport">
+          select a.ID AS id, a.TITLE AS title,
+          a.REASON AS reason, a.START_TIME AS startTime,
+          a.END_TIME AS endTime, a.CREATE_TIME AS createTime,
+          a.UPDATE_TIME AS updateTime, a.update_by AS updateBy,
+		  b.name AS city,
+		  c.name AS customer,
+	   	  d.name AS createBy
+	   	  from t_business a
+		  left join sys_dict b on b.code = a.city and b.pid = (select id from sys_dict where code ="business_city")
+		  left join sys_dict c on c.code = a.customer and c.pid = (select id from sys_dict where code ="customer")
+          left join sys_user d on a.create_by = d.id
+		  where 1 = 1
+        <if test="startTime != null and startTime !='' and endTime != null and endTime != ''">
+            and (SIGNIN_TIME between CONCAT(#{startTime},' 00:00:00') and CONCAT(#{endTime},' 23:59:59'))
+        </if>
+
+        <if test="condition != null and condition != '' ">
+            and create_by like CONCAT('%',#{condition},'%')
+        </if>
+        order by id DESC
+    </select>
+
+
+
+</mapper>

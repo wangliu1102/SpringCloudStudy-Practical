@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huishu.oa.modular.office.dao.AttendanceMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.huishu.oa.modular.office.model.Attendance">
+        <id column="id" property="id"/>
+        <result column="week" property="week"/>
+        <result column="state" property="state"/>
+        <result column="signin_time" property="signinTime"/>
+        <result column="signout_time" property="signoutTime"/>
+        <result column="ip" property="ip"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="create_by" property="createBy"/>
+        <result column="update_by" property="updateBy"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id AS id, week AS week, state AS state, signin_time AS signinTime,
+        signout_time AS signoutTime, ip AS ip,  create_time AS createTime,
+        update_time AS updateTime, create_by AS createBy, update_by AS updateBy
+    </sql>
+
+
+    <select id="selectListCount" resultType="Integer">
+        select count(*)
+        from t_attendance
+        where 1 = 1
+    <if test="startTime != null and startTime !='' and endTime != null and endTime != ''">
+            and (SIGNIN_TIME between CONCAT(#{startTime},' 00:00:00') and CONCAT(#{endTime},' 23:59:59'))
+        </if>
+       <if test="condition != null and condition != '' ">
+            and create_by like CONCAT('%',#{condition},'%')
+        </if>
+        order by id DESC
+    </select>
+
+    <select id="selectExportAll" resultType="map">
+        select
+        a.ID AS id, a.WEEK AS week, a.STATE AS state, a.SIGNIN_TIME AS signinTime,
+        a.SIGNOUT_TIME AS signoutTime, a.IP AS ip,  a.CREATE_TIME AS createTime,
+        a.UPDATE_TIME AS updateTime, a.create_by AS createBy, a.update_by AS updateBy,
+        b.name as stateName,
+        c.name as userName
+        from t_attendance a
+        left join sys_dict b on a.STATE = b.code
+        left join sys_user c on a.create_by = c.id
+        where 1 = 1
+        <if test="startTime != null and startTime !='' and endTime != null and endTime != ''">
+            and (SIGNIN_TIME between CONCAT(#{startTime},' 00:00:00') and CONCAT(#{endTime},' 23:59:59'))
+        </if>
+
+        <if test="condition != null and condition != '' ">
+            and create_by like CONCAT('%',#{condition},'%')
+        </if>
+        order by id DESC
+    </select>
+
+
+    <sql id="selectAttendanceVo">
+        select
+        a.ID AS id, a.WEEK AS week, a.STATE AS state, a.SIGNIN_TIME AS signinTime,
+        a.SIGNOUT_TIME AS signoutTime, a.IP AS ip,  a.CREATE_TIME AS createTime,
+        a.UPDATE_TIME AS updateTime, a.create_by AS createBy, a.update_by AS updateBy,
+        m.name as stateName,
+        u.name as userName
+        from t_attendance a
+        left join sys_dict m on m.code=a.state and m.pid = (select id from sys_dict where code ='attendance_state')
+        left join sys_user u on u.id=a.create_by
+	    left join sys_dept d on u.dept_id = d.id
+    </sql>
+    <select id="getList" resultType="map" parameterType="com.baomidou.mybatisplus.plugins.Page">
+        <include refid="selectAttendanceVo"/>
+        where 1 = 1
+       <if test="attendance.startTime != null and attendance.startTime != ''">
+            and (a.start_time <![CDATA[>= ]]> CONCAT(#{attendance.startTime},' 00:00:00'))
+        </if>
+        <if test="attendance.endTime != null and attendance.endTime != ''">
+            and (a.end_time <![CDATA[<= ]]>  CONCAT(#{attendance.endTime},' 23:59:59'))
+        </if>
+        <if test="attendance.name != null and attendance.name != '' ">
+            and u.name like CONCAT('%',#{attendance.name},'%')
+        </if>
+        <!-- 数据范围过滤 -->
+        ${attendance.params.dataScope}
+        order by a.id DESC
+    </select>
+
+
+
+
+</mapper>

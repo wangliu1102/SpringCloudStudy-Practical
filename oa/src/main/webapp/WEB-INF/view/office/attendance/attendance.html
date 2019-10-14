@@ -1,0 +1,55 @@
+@layout("/common/_container.html"){
+<div class="row">
+    <div class="col-sm-12">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>考勤明细</h5>
+            </div>
+            <div class="ibox-content">
+                <div class="row row-lg">
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <#NameCon id="name" name="姓名" placeholder="姓名"/>
+                            </div>
+                            <div class="col-sm-3">
+                                <#TimeCon id="startTime" name="开始时间" isTime="false" pattern="YYYY-MM-DD" />
+                            </div>
+                            <div class="col-sm-3">
+                                <#TimeCon id="endTime" name="结束时间" isTime="false" pattern="YYYY-MM-DD" />
+                            </div>
+                            <div class="col-sm-3">
+                                <#button name="搜索" icon="fa-search" clickFun="Attendance.search()"/>
+                                <#button name="重置" icon="fa-trash" clickFun="Attendance.resetSearch()" space="true"/>
+                            </div>
+                        </div>
+                        <div class="hidden-xs" id="attendanceTableToolbar" role="group">
+                            @if(shiro.hasPermission("/signIn/exportAll")){
+                            <#button name="导出全部" icon="fa-plus" clickFun="Attendance.exportExcelAll()"/>
+                            @}
+                        </div>
+                        <#table id="attendanceTable"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="${ctxPath}/static/modular/office/attendance/attendance.js?v=${version}"></script>
+<script>
+    //渲染时间选择框
+    laydate.render({
+        elem: '#startTime'
+    });
+
+    //渲染时间选择框
+    laydate.render({
+        elem: '#endTime'
+    });
+</script>
+@}
+
+
+
+
+

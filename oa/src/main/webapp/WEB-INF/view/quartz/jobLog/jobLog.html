@@ -1,0 +1,71 @@
+@layout("/common/_container.html"){
+<div class="row">
+    <div class="col-sm-12">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>定时任务调度日志</h5>
+            </div>
+            <div class="ibox-content">
+                <div class="row row-lg">
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <#NameCon id="jobName" name="任务名称" />
+                            </div>
+                            <div class="col-sm-2">
+                                <#NameCon id="methodName" name="方法名称" />
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="input-group">
+                                    <div class="input-group-btn">
+                                        <button data-toggle="dropdown" class="btn btn-white dropdown-toggle"
+                                                type="button">
+                                            执行状态
+                                        </button>
+                                    </div>
+                                    <select class="form-control" id="status">
+                                        <option value="">所有</option>
+                                        <option value="0">成功</option>
+                                        <option value="1">失败</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <#TimeCon id="beginTime" name="开始时间" isTime="false"/>
+                            </div>
+                            <div class="col-sm-2">
+                                <#TimeCon id="endTime" name="结束时间" isTime="false"/>
+                            </div>
+                            <div class="col-sm-2">
+                                <#button name="搜索" icon="fa-search" clickFun="SysJobLog.search()"/>
+                                <#button name="重置" icon="fa-trash" clickFun="SysJobLog.resetSearch()" space="true"/>
+                            </div>
+                        </div>
+                        <div class="hidden-xs" id="sysJobLogTableToolbar" role="group">
+                            @if(shiro.hasPermission("/quartz/jobLog/remove")){
+                            <#button name="删除" icon="fa-remove" clickFun="SysJobLog.delete()"/>
+                            @}
+                            @if(shiro.hasPermission("/quartz/jobLog/clean")){
+                            <#button name="清空日志" icon="fa-trash" clickFun="SysJobLog.trashLog()" space="true"/>
+                            @}
+                            @if(shiro.hasPermission("/quartz/jobLog/detail")){
+                            <#button name="查看详情" icon="fa-book" clickFun="SysJobLog.detail()" space="true"/>
+                            @}
+                        </div>
+                        <#table id="sysJobLogTable"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="${ctxPath}/static/modular/quartz/jobLog/jobLog.js"></script>
+<script>
+    laydate.render({
+        elem: '#beginTime'
+    });
+    laydate.render({
+        elem: '#endTime'
+    });
+</script>
+@}
