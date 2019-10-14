@@ -12,10 +12,21 @@ spring:
 # ** 表示多层级，*表示单层级
 zuul:
   routes:
-    defalutApi.path: /api/**
-    defalutApi.serviceId: student
-    apiB.path: /admin/**
-    apiB.serviceId: course
+    defalutApi:
+      path: /api/**
+      serviceId: student
+    apiB:
+      path: /admin/**
+      serviceId: course
+    oa:
+      path: /oa/**
+      serviceId: oa
+# Zuul超时
+# 对于通过serviceId路由的服务,需要设置两个参数：ribbon.ReadTimeout 和ribbon.SocketTimeout
+# 对于通过url路由的服务,需要设置两个参数：zuul.host.socket-timeout-millis或zuul.host.connect-timeout-millis
+ribbon:
+  ReadTimeout: 60000  # 单位毫秒数
+  SocketTimeout: 60000
 
 eureka:
   client:
