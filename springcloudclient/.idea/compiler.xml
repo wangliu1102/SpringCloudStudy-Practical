@@ -6,10 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="student" />
+        <module name="eureka-client" />
         <module name="clientapi" />
+        <module name="member" />
+        <module name="client-api" />
         <module name="course" />
         <module name="eurekaclient" />
-        <module name="student" />
       </profile>
     </annotationProcessing>
   </component>

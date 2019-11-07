@@ -70,7 +70,7 @@ mybatis-plus:
 eureka:
   client: # 客户端注册进eureka服务列表内
     service-url:
-      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/
+      defaultZone: http://admin:123456@eureka7001.com:7001/eureka/,http://admin:123456@eureka7002.com:7002/eureka/
   instance:
     instance-id: course8003 # 自定义服务名称信息
     prefer-ip-address: true # 访问路径可以显示IP地址

@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: member
+
+server:
+  port: 1201
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://admin:123456@eureka7001.com:7001/eureka/,http://admin:123456@eureka7002.com:7002/eureka/
+  instance:
+    prefer-ip-address: true
+    instance-id: member1201
+info:
+  app.name: springcloud-server
+  company.name: www.wangliu.com
+  build.artifactId: '@project.artifactId@'
+  build.version: '@project.version@'
+
+security:
+  oauth2:
+    resource:
+      id: member
+      user-info-uri: http://localhost:9527/auth/api/member
+      prefer-token-info: false

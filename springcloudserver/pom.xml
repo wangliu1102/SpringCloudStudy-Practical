@@ -11,6 +11,9 @@
         <module>eureka-server</module>
         <module>zuul</module>
         <module>lcn-tm</module>
+        <module>oauth2</module>
+        <module>server-api</module>
+        <module>admin-monitor</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -21,6 +24,7 @@
         <spring-cloud.version>Greenwich.SR2</spring-cloud.version>
         <lombok.version>1.16.18</lombok.version>
         <mybatis-plus.version>3.0.7.1</mybatis-plus.version>
+        <commons-lang3.version>3.4</commons-lang3.version>
     </properties>
 
     <dependencyManagement>
@@ -75,6 +79,12 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-mail</artifactId>
+        </dependency>
+        <!--commons lang工具包-->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${commons-lang3.version}</version>
         </dependency>
     </dependencies>
     <build>

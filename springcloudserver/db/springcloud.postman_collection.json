@@ -1,0 +1,274 @@
+{
+	"info": {
+		"_postman_id": "a9fe9029-f89e-4d37-97fb-1d018b891bdc",
+		"name": "springcloud",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "oauth2",
+			"item": [
+				{
+					"name": "http://localhost:9527/auth/oauth/token?grant_type=password&username=哈哈&password=1",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "android",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "android",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:9527/auth/oauth/token?grant_type=password&username=哈哈&password=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9527",
+							"path": [
+								"auth",
+								"oauth",
+								"token"
+							],
+							"query": [
+								{
+									"key": "grant_type",
+									"value": "password"
+								},
+								{
+									"key": "username",
+									"value": "哈哈"
+								},
+								{
+									"key": "password",
+									"value": "1"
+								}
+							]
+						},
+						"description": "获取token"
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:9527/auth/oauth/token?grant_type=refresh_token&refresh_token=f474be63-b7a6-4ef3-a4f3-4edcab926406",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "android",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "android",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:9527/auth/oauth/token?grant_type=refresh_token&refresh_token=f474be63-b7a6-4ef3-a4f3-4edcab926406",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9527",
+							"path": [
+								"auth",
+								"oauth",
+								"token"
+							],
+							"query": [
+								{
+									"key": "grant_type",
+									"value": "refresh_token"
+								},
+								{
+									"key": "refresh_token",
+									"value": "f474be63-b7a6-4ef3-a4f3-4edcab926406"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:9527/auth/api/member?access_token=6ab11f63-1b5d-417f-a711-97eeb3e35be4",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:9527/auth/api/member?access_token=6ab11f63-1b5d-417f-a711-97eeb3e35be4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9527",
+							"path": [
+								"auth",
+								"api",
+								"member"
+							],
+							"query": [
+								{
+									"key": "access_token",
+									"value": "6ab11f63-1b5d-417f-a711-97eeb3e35be4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:9527/member/api/current?access_token=6ab11f63-1b5d-417f-a711-97eeb3e35be4",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:9527/member/api/current?access_token=6ab11f63-1b5d-417f-a711-97eeb3e35be4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9527",
+							"path": [
+								"member",
+								"api",
+								"current"
+							],
+							"query": [
+								{
+									"key": "access_token",
+									"value": "6ab11f63-1b5d-417f-a711-97eeb3e35be4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:9527/member/api/query?access_token=8b9d0dff-5d4e-4625-81f7-0bf5f0db2bca",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:9527/member/api/query?access_token=8b9d0dff-5d4e-4625-81f7-0bf5f0db2bca",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9527",
+							"path": [
+								"member",
+								"api",
+								"query"
+							],
+							"query": [
+								{
+									"key": "access_token",
+									"value": "8b9d0dff-5d4e-4625-81f7-0bf5f0db2bca"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:9527/member/api/hello?access_token=8b9d0dff-5d4e-4625-81f7-0bf5f0db2bca",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:9527/member/api/hello?access_token=8b9d0dff-5d4e-4625-81f7-0bf5f0db2bca",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9527",
+							"path": [
+								"member",
+								"api",
+								"hello"
+							],
+							"query": [
+								{
+									"key": "access_token",
+									"value": "8b9d0dff-5d4e-4625-81f7-0bf5f0db2bca"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:9527/auth/api/exit?access_token=6ab11f63-1b5d-417f-a711-97eeb3e35be4",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:9527/auth/api/exit?access_token=6ab11f63-1b5d-417f-a711-97eeb3e35be4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9527",
+							"path": [
+								"auth",
+								"api",
+								"exit"
+							],
+							"query": [
+								{
+									"key": "access_token",
+									"value": "6ab11f63-1b5d-417f-a711-97eeb3e35be4"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

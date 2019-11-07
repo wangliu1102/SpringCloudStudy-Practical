@@ -1,0 +1,24 @@
+package com.wl.springcloud.dao;
+
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.wl.springcloud.entity.Permission;
+
+import java.util.List;
+
+/**
+ * 〈权限Dao〉
+ *
+ * @author Curise
+ * @create 2018/12/13
+ * @since 1.0.0
+ */
+public interface PermissionMapper extends BaseMapper<Permission> {
+
+    /**
+     * 根据角色id查找权限列表
+     *
+     * @param roleId 角色id
+     * @return 权限列表
+     */
+    List<Permission> findByRoleId(Integer roleId);
+}

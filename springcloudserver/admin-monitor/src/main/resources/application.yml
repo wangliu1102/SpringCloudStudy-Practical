@@ -1,0 +1,50 @@
+server:
+  port: 8769
+spring:
+  application:
+    name: admin-monitor
+  security:
+    user:
+      name: admin
+      password: admin
+  mail:
+    host: smtp.qq.com
+    username: wangliu.ah@qq.com
+    password: ydiekcpezegmjicc
+  boot:
+    admin:
+      notify:
+        mail:
+          to: wangliu.ah@qq.com
+          from: wangliu.ah@qq.com
+
+#哪个客户端要监控所有端点，就添加下面代码，否则只监控到很少的信息，例如oauth2服务
+management: #暴露actuator的所有端点
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint: #health endpoint是否必须显示全部细节。默认情况下, /actuator/health 是公开的，并且不显示细节
+    health:
+      show-details: always
+
+eureka:
+  client:
+    registry-fetch-interval-seconds: 5  #表示eureka client间隔多久去拉取服务注册信息，默认为30秒
+    service-url:
+      defaultZone: http://admin:123456@eureka7001.com:7001/eureka,http://admin:123456@eureka7002.com:7002/eureka
+  instance:
+    lease-renewal-interval-in-seconds: 10  #表示eureka client发送心跳给server端的频率
+    health-check-url-path: /actuator/health  #健康检查页面的URL路径
+    instance-id: admin-monitor8769 #自定义服务名称信息
+    prefer-ip-address: true #访问路径可以显示IP地址
+      #注册给eureka时告诉eureka自己的密码
+    metadata-map:
+      user.name: ${spring.security.user.name}
+      user.password: ${spring.security.user.password}
+
+info:
+  app.name: springcloud-server
+  company.name: www.wangliu.com
+  build.artifactId: '@project.artifactId@'
+  build.version: '@project.version@'

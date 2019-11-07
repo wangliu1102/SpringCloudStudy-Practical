@@ -6,9 +6,14 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="eurekaserver" />
-        <module name="lcntm" />
         <module name="zuul" />
+        <module name="eureka-server" />
+        <module name="adminmonitor" />
+        <module name="lcntm" />
+        <module name="lcn-tm" />
+        <module name="serverapi" />
+        <module name="oauth2" />
+        <module name="eurekaserver" />
       </profile>
     </annotationProcessing>
   </component>

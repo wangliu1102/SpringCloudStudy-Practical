@@ -12,6 +12,7 @@
         <module>student</module>
         <module>course</module>
         <module>client-api</module>
+        <module>member</module>
     </modules>
     <packaging>pom</packaging>
 
