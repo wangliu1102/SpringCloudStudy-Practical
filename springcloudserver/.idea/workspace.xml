@@ -1,7 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b9a54e5a-1f91-425f-9454-3db108a83087" name="Default" comment="" />
+    <list default="true" id="b9a54e5a-1f91-425f-9454-3db108a83087" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springcloudclient/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloudclient/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springcloudclient/.txlcn/student-8002.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloudclient/.txlcn/student-8002.mv.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springcloudclient/client-api/src/main/java/com/wl/springcloud/feginservice/CourseFegin.java" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloudclient/client-api/src/main/java/com/wl/springcloud/feginservice/CourseFegin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springcloudclient/course/src/main/java/com/wl/springcloud/controller/CourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloudclient/course/src/main/java/com/wl/springcloud/controller/CourseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springcloudclient/course/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloudclient/course/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springcloudclient/course/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloudclient/course/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springcloudclient/course/target/classes/com/wl/springcloud/controller/CourseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloudclient/course/target/classes/com/wl/springcloud/controller/CourseController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springcloudclient/member/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloudclient/member/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springcloudclient/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloudclient/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springcloudclient/student/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloudclient/student/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springcloudclient/student/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloudclient/student/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-monitor/src/main/java/com/wl/springcloud/config/SecuritySecureConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/admin-monitor/src/main/java/com/wl/springcloud/config/SecuritySecureConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/springcloud.postman_collection.json" beforeDir="false" afterPath="$PROJECT_DIR$/db/springcloud.postman_collection.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eureka-server/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/eureka-server/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lcn-tm/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/lcn-tm/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lcn-tm/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/lcn-tm/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oauth2/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/oauth2/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oauth2/src/main/java/com/wl/springcloud/config/oauth/AuthorizationServerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/oauth2/src/main/java/com/wl/springcloud/config/oauth/AuthorizationServerConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oauth2/src/main/java/com/wl/springcloud/config/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/oauth2/src/main/java/com/wl/springcloud/config/security/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oauth2/src/main/java/com/wl/springcloud/service/MyUserDetailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/oauth2/src/main/java/com/wl/springcloud/service/MyUserDetailService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oauth2/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/oauth2/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zuul/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/zuul/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zuul/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/zuul/target/classes/application.yml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +76,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/oauth2/src/main/java/com/wl/springcloud/dao" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../rbase" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -86,7 +113,21 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.ZuulApplication">
+  <component name="RunManager" selected="Spring Boot.Oauth2Application">
+    <configuration name="AuthorizationServerConfig" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.wl.springcloud.config.oauth.AuthorizationServerConfig" />
+      <module name="oauth2" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.wl.springcloud.config.oauth.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <method v="2">
@@ -147,22 +188,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LcnTmApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="lcn-tm" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.wl.springcloud.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.wl.springcloud.LcnTmApplication" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="UPDATE_ACTION_UPDATE_POLICY" value="UpdateClassesAndResources" />
-      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Oauth2Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="oauth2" />
       <extension name="coverage">
@@ -205,17 +230,17 @@
       <item itemvalue="Spring Boot.EurekaServerApplication7002" />
       <item itemvalue="Spring Boot.EurekaServerApplication7001" />
       <item itemvalue="Spring Boot.ZuulApplication" />
-      <item itemvalue="Spring Boot.LcnTmApplication" />
       <item itemvalue="Spring Boot.Oauth2Application" />
       <item itemvalue="Spring Boot.AdminMonitorApplication" />
+      <item itemvalue="Application.AuthorizationServerConfig" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.AdminMonitorApplication" />
         <item itemvalue="Spring Boot.ZuulApplication" />
         <item itemvalue="Spring Boot.Oauth2Application" />
         <item itemvalue="Spring Boot.EurekaServerApplication7001" />
-        <item itemvalue="Spring Boot.LcnTmApplication" />
+        <item itemvalue="Application.AuthorizationServerConfig" />
+        <item itemvalue="Spring Boot.AdminMonitorApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -248,6 +273,13 @@
       <workItem from="1573043051746" duration="210000" />
       <workItem from="1573086972724" duration="29412000" />
       <workItem from="1573124388846" duration="4647000" />
+      <workItem from="1573129404503" duration="1080000" />
+      <workItem from="1573130656756" duration="38000" />
+      <workItem from="1573130987673" duration="384000" />
+      <workItem from="1573176428538" duration="105000" />
+      <workItem from="1573176576292" duration="527000" />
+      <workItem from="1573177907737" duration="13100000" />
+      <workItem from="1573432182618" duration="21191000" />
     </task>
     <servers />
   </component>

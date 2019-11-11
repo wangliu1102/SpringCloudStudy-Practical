@@ -16,7 +16,7 @@
 							"basic": [
 								{
 									"key": "password",
-									"value": "android",
+									"value": "123456",
 									"type": "string"
 								},
 								{
@@ -71,7 +71,7 @@
 							"basic": [
 								{
 									"key": "password",
-									"value": "android",
+									"value": "123456",
 									"type": "string"
 								},
 								{
@@ -88,7 +88,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:9527/auth/oauth/token?grant_type=refresh_token&refresh_token=f474be63-b7a6-4ef3-a4f3-4edcab926406",
+							"raw": "http://localhost:9527/auth/oauth/token?grant_type=refresh_token&refresh_token=11d06da3-1a2d-48c8-9ae0-f2be0bd7b155",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -106,7 +106,7 @@
 								},
 								{
 									"key": "refresh_token",
-									"value": "f474be63-b7a6-4ef3-a4f3-4edcab926406"
+									"value": "11d06da3-1a2d-48c8-9ae0-f2be0bd7b155"
 								}
 							]
 						}
@@ -123,7 +123,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:9527/auth/api/member?access_token=6ab11f63-1b5d-417f-a711-97eeb3e35be4",
+							"raw": "http://localhost:9527/auth/api/member?access_token=48f0ce97-670e-45b2-8134-ea4d04607fdc",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -137,7 +137,7 @@
 							"query": [
 								{
 									"key": "access_token",
-									"value": "6ab11f63-1b5d-417f-a711-97eeb3e35be4"
+									"value": "48f0ce97-670e-45b2-8134-ea4d04607fdc"
 								}
 							]
 						}
@@ -154,7 +154,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:9527/member/api/current?access_token=6ab11f63-1b5d-417f-a711-97eeb3e35be4",
+							"raw": "http://localhost:9527/member/api/current?access_token=48f0ce97-670e-45b2-8134-ea4d04607fdc",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -168,7 +168,7 @@
 							"query": [
 								{
 									"key": "access_token",
-									"value": "6ab11f63-1b5d-417f-a711-97eeb3e35be4"
+									"value": "48f0ce97-670e-45b2-8134-ea4d04607fdc"
 								}
 							]
 						}
@@ -185,7 +185,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:9527/member/api/query?access_token=8b9d0dff-5d4e-4625-81f7-0bf5f0db2bca",
+							"raw": "http://localhost:9527/member/api/query?access_token=48f0ce97-670e-45b2-8134-ea4d04607fdc",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -199,7 +199,7 @@
 							"query": [
 								{
 									"key": "access_token",
-									"value": "8b9d0dff-5d4e-4625-81f7-0bf5f0db2bca"
+									"value": "48f0ce97-670e-45b2-8134-ea4d04607fdc"
 								}
 							]
 						}
@@ -216,7 +216,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:9527/member/api/hello?access_token=8b9d0dff-5d4e-4625-81f7-0bf5f0db2bca",
+							"raw": "http://localhost:9527/member/api/hello?access_token=48f0ce97-670e-45b2-8134-ea4d04607fdc",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -230,7 +230,7 @@
 							"query": [
 								{
 									"key": "access_token",
-									"value": "8b9d0dff-5d4e-4625-81f7-0bf5f0db2bca"
+									"value": "48f0ce97-670e-45b2-8134-ea4d04607fdc"
 								}
 							]
 						}
@@ -247,7 +247,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:9527/auth/api/exit?access_token=6ab11f63-1b5d-417f-a711-97eeb3e35be4",
+							"raw": "http://localhost:9527/auth/api/exit?access_token=4341825c-1b28-4a07-ac59-53c4da30ade3",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -261,8 +261,33 @@
 							"query": [
 								{
 									"key": "access_token",
-									"value": "6ab11f63-1b5d-417f-a711-97eeb3e35be4"
+									"value": "4341825c-1b28-4a07-ac59-53c4da30ade3"
 								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:9527/member/api/current",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:9527/member/api/current",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9527",
+							"path": [
+								"member",
+								"api",
+								"current"
 							]
 						}
 					},

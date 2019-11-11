@@ -10,6 +10,7 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 /**
@@ -29,8 +30,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     public PasswordEncoder passwordEncoder() {
         //密码验证为了方便我使用了不加密的方式，重写了PasswordEncoder，实际开发还是建议使用BCryptPasswordEncoder
-        //return new BCryptPasswordEncoder();
-        return new NoEncryptPasswordEncoder();
+        return new BCryptPasswordEncoder();
+//        return new NoEncryptPasswordEncoder();
     }
 
     @Override

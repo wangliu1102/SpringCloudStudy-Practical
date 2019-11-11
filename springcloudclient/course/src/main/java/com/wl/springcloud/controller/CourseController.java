@@ -1,6 +1,5 @@
 package com.wl.springcloud.controller;
 
-import com.wl.springcloud.entity.Course;
 import com.wl.springcloud.service.ICourseService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -49,7 +49,7 @@
     <build>
         <resources>
             <resource>
-                <!-- xml放在java目录下-->
+                <!-- xml放在java目录下需要该配置，否则报not found错误-->
                 <directory>src/main/java</directory>
                 <includes>
                     <include>**/*.xml</include>

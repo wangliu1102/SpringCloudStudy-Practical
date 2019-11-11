@@ -13,7 +13,7 @@ eureka:
     prefer-ip-address: true
     instance-id: member1201
 info:
-  app.name: springcloud-server
+  app.name: springcloud-client
   company.name: www.wangliu.com
   build.artifactId: '@project.artifactId@'
   build.version: '@project.version@'

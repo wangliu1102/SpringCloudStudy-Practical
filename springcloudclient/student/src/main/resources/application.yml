@@ -76,7 +76,7 @@ eureka:
     instance-id: student8002 #自定义服务名称信息
     prefer-ip-address: true #访问路径可以显示IP地址
 info:
-  app.name: springcloud-server
+  app.name: springcloud-client
   company.name: www.wangliu.com
   build.artifactId: '@project.artifactId@'
   build.version: '@project.version@'

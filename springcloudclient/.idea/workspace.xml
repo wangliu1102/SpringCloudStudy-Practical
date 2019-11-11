@@ -1,7 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3762c519-7ffd-4a86-b584-ebc78d9b1f20" name="Default" comment="" />
+    <list default="true" id="3762c519-7ffd-4a86-b584-ebc78d9b1f20" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.txlcn/student-8002.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/.txlcn/student-8002.mv.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client-api/src/main/java/com/wl/springcloud/feginservice/CourseFegin.java" beforeDir="false" afterPath="$PROJECT_DIR$/client-api/src/main/java/com/wl/springcloud/feginservice/CourseFegin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/course/src/main/java/com/wl/springcloud/controller/CourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/course/src/main/java/com/wl/springcloud/controller/CourseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/course/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/course/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/course/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/course/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/course/target/classes/com/wl/springcloud/controller/CourseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/course/target/classes/com/wl/springcloud/controller/CourseController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/member/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/member/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/student/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/student/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springcloudserver/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloudserver/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springcloudserver/admin-monitor/src/main/java/com/wl/springcloud/config/SecuritySecureConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloudserver/admin-monitor/src/main/java/com/wl/springcloud/config/SecuritySecureConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springcloudserver/db/springcloud.postman_collection.json" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloudserver/db/springcloud.postman_collection.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springcloudserver/eureka-server/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloudserver/eureka-server/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springcloudserver/lcn-tm/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloudserver/lcn-tm/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springcloudserver/lcn-tm/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloudserver/lcn-tm/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springcloudserver/oauth2/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloudserver/oauth2/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springcloudserver/oauth2/src/main/java/com/wl/springcloud/config/oauth/AuthorizationServerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloudserver/oauth2/src/main/java/com/wl/springcloud/config/oauth/AuthorizationServerConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springcloudserver/oauth2/src/main/java/com/wl/springcloud/config/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloudserver/oauth2/src/main/java/com/wl/springcloud/config/security/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springcloudserver/oauth2/src/main/java/com/wl/springcloud/service/MyUserDetailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloudserver/oauth2/src/main/java/com/wl/springcloud/service/MyUserDetailService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springcloudserver/oauth2/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloudserver/oauth2/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springcloudserver/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloudserver/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springcloudserver/zuul/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloudserver/zuul/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springcloudserver/zuul/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloudserver/zuul/target/classes/application.yml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -264,6 +291,12 @@
       <workItem from="1573093403717" duration="7684000" />
       <workItem from="1573105011337" duration="6303000" />
       <workItem from="1573127011131" duration="1722000" />
+      <workItem from="1573129410115" duration="1066000" />
+      <workItem from="1573131005146" duration="371000" />
+      <workItem from="1573176438614" duration="92000" />
+      <workItem from="1573176582996" duration="518000" />
+      <workItem from="1573177980773" duration="12400000" />
+      <workItem from="1573432189010" duration="10212000" />
     </task>
     <servers />
   </component>

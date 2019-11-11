@@ -40,18 +40,5 @@ public class SecuritySecureConfig extends WebSecurityConfigurerAdapter {
                         adminContextPath + "/instances",
                         adminContextPath + "/actuator/**"
                 );
-
-//        SavedRequestAwareAuthenticationSuccessHandler successHandler = new SavedRequestAwareAuthenticationSuccessHandler();
-//        successHandler.setTargetUrlParameter( "redirectTo" );
-//
-//        http.authorizeRequests()
-//                .antMatchers( adminContextPath + "/assets/**" ).permitAll()
-//                .antMatchers( adminContextPath + "/login" ).permitAll()
-//                .anyRequest().authenticated()
-//                .and()
-//                .formLogin().loginPage( adminContextPath + "/login" ).successHandler( successHandler ).and()
-//                .logout().logoutUrl( adminContextPath + "/logout" ).and()
-//                .httpBasic().and()
-//                .csrf().disable();
     }
 }

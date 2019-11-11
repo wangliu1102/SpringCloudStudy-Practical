@@ -11,6 +11,7 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -55,7 +56,8 @@ public class MyUserDetailService implements UserDetailsService {
                 grantedAuthorities.add(authority);
             }
         }
-        User user = new User(member.getMemberName(), member.getPassword(),
+        // 使用BCryptPasswordEncoder时需要加密
+        User user = new User(member.getMemberName(), new BCryptPasswordEncoder().encode(member.getPassword()),
                 enabled, accountNonExpired, credentialsNonExpired, accountNonLocked, grantedAuthorities);
         return user;
     }

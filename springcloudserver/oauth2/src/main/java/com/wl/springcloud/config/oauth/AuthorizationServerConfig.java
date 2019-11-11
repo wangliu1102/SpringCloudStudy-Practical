@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
@@ -23,7 +24,7 @@ import org.springframework.security.oauth2.provider.token.store.JdbcTokenStore;
 import javax.sql.DataSource;
 
 /**
- *〈OAuth2认证服务器〉
+ * 〈OAuth2认证服务器〉
  *
  * @author 王柳
  * @date 2019/11/7 9:43
@@ -63,6 +64,11 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
                 .checkTokenAccess("isAuthenticated()");
     }
 
+    public static void main(String[] args) {
+        // 配置在数据库中，oauth_client_details表中的client_secret需要加密后存储
+        System.out.println(new BCryptPasswordEncoder().encode("123456"));
+    }
+
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         // 配置在数据库中
@@ -71,7 +77,8 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 //        clients.inMemory()
 //                .withClient("android")
 //                .scopes("read")
-//                .secret("android")
+//                // 使用BCryptPasswordEncoder时需要加密
+//                .secret(new BCryptPasswordEncoder().encode("123456"))
 //                .authorizedGrantTypes("password", "authorization_code", "refresh_token")
 //                .and()
 //                .withClient("webapp")
@@ -97,7 +104,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
         // 配置在数据库中
         endpoints.tokenStore(jdbcTokenStore())
-        // 配置在内存中
+                // 配置在内存中
 //        endpoints.tokenStore(tokenStore())
                 .userDetailsService(userDetailService)
                 .authenticationManager(authenticationManager);
