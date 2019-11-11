@@ -86,7 +86,7 @@ Eureka的基本架构：
 
 请注意和Dubbo的架构对比
 
-![img](file:///D:/Documents/My Knowledge/temp/2c2154f6-4be6-4bb8-9275-0c4fe7e11497/128/index_files/31f40d44-80d8-43a2-ae97-dade08bf1dce.jpg)![img](file:///D:/Documents/My Knowledge/temp/2c2154f6-4be6-4bb8-9275-0c4fe7e11497/128/index_files/98639013-b79b-4811-a640-d48e4f6c8f2e.jpg)Eureka包含两个组件：Eureka Server和Eureka Client
+![img](2c2154f6-4be6-4bb8-9275-0c4fe7e11497/128/index_files/31f40d44-80d8-43a2-ae97-dade08bf1dce.jpg)![img](2c2154f6-4be6-4bb8-9275-0c4fe7e11497/128/index_files/98639013-b79b-4811-a640-d48e4f6c8f2e.jpg)Eureka包含两个组件：Eureka Server和Eureka Client
 
 Eureka Server提供服务注册服务，各个节点启动后，会在EurekaServer中进行注册，这样EurekaServer中的服务注册表中将会存储所有可用服务节点的信息，服务节点的信息可以在界面中直观的看到。
 
@@ -102,7 +102,7 @@ Eureka Client是一个Java客户端，用于简化Eureka Server的交互，客�
 
 故障现象： 
 
-![img](file:///D:/Documents/My Knowledge/temp/2c2154f6-4be6-4bb8-9275-0c4fe7e11497/128/index_files/22536531-7db0-48a2-af56-9246f8545920.png)
+![img]( 2c2154f6-4be6-4bb8-9275-0c4fe7e11497/128/index_files/22536531-7db0-48a2-af56-9246f8545920.png)
 
 ![img](file:///D:/Documents/My Knowledge/temp/2c2154f6-4be6-4bb8-9275-0c4fe7e11497/128/index_files/1cbc4511-a3fa-4ad9-a1d2-6f52d69d0a28.jpg)
 
