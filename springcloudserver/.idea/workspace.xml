@@ -2,32 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b9a54e5a-1f91-425f-9454-3db108a83087" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../springcloudclient/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloudclient/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloudclient/.txlcn/student-8002.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloudclient/.txlcn/student-8002.mv.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloudclient/client-api/src/main/java/com/wl/springcloud/feginservice/CourseFegin.java" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloudclient/client-api/src/main/java/com/wl/springcloud/feginservice/CourseFegin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloudclient/course/src/main/java/com/wl/springcloud/controller/CourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloudclient/course/src/main/java/com/wl/springcloud/controller/CourseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloudclient/course/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloudclient/course/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloudclient/course/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloudclient/course/target/classes/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloudclient/course/target/classes/com/wl/springcloud/controller/CourseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloudclient/course/target/classes/com/wl/springcloud/controller/CourseController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloudclient/member/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloudclient/member/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloudclient/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloudclient/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloudclient/student/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloudclient/student/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloudclient/student/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloudclient/student/target/classes/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin-monitor/src/main/java/com/wl/springcloud/config/SecuritySecureConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/admin-monitor/src/main/java/com/wl/springcloud/config/SecuritySecureConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/springcloud.postman_collection.json" beforeDir="false" afterPath="$PROJECT_DIR$/db/springcloud.postman_collection.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eureka-server/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/eureka-server/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lcn-tm/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/lcn-tm/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lcn-tm/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/lcn-tm/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oauth2/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/oauth2/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oauth2/src/main/java/com/wl/springcloud/config/oauth/AuthorizationServerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/oauth2/src/main/java/com/wl/springcloud/config/oauth/AuthorizationServerConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oauth2/src/main/java/com/wl/springcloud/config/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/oauth2/src/main/java/com/wl/springcloud/config/security/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oauth2/src/main/java/com/wl/springcloud/service/MyUserDetailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/oauth2/src/main/java/com/wl/springcloud/service/MyUserDetailService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oauth2/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/oauth2/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zuul/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/zuul/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zuul/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/zuul/target/classes/application.yml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -279,7 +254,7 @@
       <workItem from="1573176428538" duration="105000" />
       <workItem from="1573176576292" duration="527000" />
       <workItem from="1573177907737" duration="13100000" />
-      <workItem from="1573432182618" duration="21191000" />
+      <workItem from="1573432182618" duration="21900000" />
     </task>
     <servers />
   </component>

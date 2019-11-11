@@ -2457,39 +2457,39 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 先发送一个请求测试一下未认证的效果
 
-![img](file:///D:/Documents/My%20Knowledge/temp/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/7282839c-a829-4dde-ae28-d88bab366f95.png)
+![img](file:///D:/Documents/My Knowledge/temp/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/7282839c-a829-4dde-ae28-d88bab366f95.png)
 
 获取认证
 
-![img](file:///D:/Documents/My%20Knowledge/temp/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/13828fcf-f5ca-451d-9100-cc89829b27bf.png)
+![img](file:///D:/Documents/My Knowledge/temp/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/13828fcf-f5ca-451d-9100-cc89829b27bf.png)
 
 使用access_token请求auth服务下的用户信息接口
 
-![img](file:///D:/Documents/My%20Knowledge/temp/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/a5817d31-8c92-42cc-bb34-5e21726b2c64.png)
+![img](file:///D:/Documents/My Knowledge/temp/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/a5817d31-8c92-42cc-bb34-5e21726b2c64.png)
 
 使用access_token请求member服务下的用户信息接口
 
-![img](file:///D:/Documents/My%20Knowledge/temp/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/103f3748-613c-464a-bfcd-830e79b3c1cb.png)
+![img](file:///D:/Documents/My Knowledge/temp/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/103f3748-613c-464a-bfcd-830e79b3c1cb.png)
 
 请求member服务的query接口
 
-![img](file:///D:/Documents/My%20Knowledge/temp/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/e1baf39f-84f8-4ec4-bdff-308db6498b15.png)
+![img](file:///D:/Documents/My Knowledge/temp/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/e1baf39f-84f8-4ec4-bdff-308db6498b15.png)
 
 请求member服务的hello接口，数据库里并没有给用户hello权限
 
-![img](file:///D:/Documents/My%20Knowledge/temp/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/ab58aee5-1a5d-4552-ba4b-30cef18d7afd.png)
+![img](file:///D:/Documents/My Knowledge/temp/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/ab58aee5-1a5d-4552-ba4b-30cef18d7afd.png)
 
 刷新token
 
-![img](file:///D:/Documents/My%20Knowledge/temp/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/b38f418b-2eba-408b-95c3-90814868cd63.png)
+![img](file:///D:/Documents/My Knowledge/temp/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/b38f418b-2eba-408b-95c3-90814868cd63.png)
 
 注销
 
-![img](file:///D:/Documents/My%20Knowledge/temp/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/b7f1a5fb-1936-4708-9d5e-35328ee7236e.png)
+![img](file:///D:/Documents/My Knowledge/temp/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/b7f1a5fb-1936-4708-9d5e-35328ee7236e.png)
 
 Postman请求已经导出，在db文件夹下
 
-![img](file:///D:/Documents/My%20Knowledge/temp/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/ecb04e45-d70d-4d73-9609-b95f8cc9fc92.png)
+![img](file:///D:/Documents/My Knowledge/temp/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/ecb04e45-d70d-4d73-9609-b95f8cc9fc92.png)
 
 **问题：****获取认证时返回401**
 
@@ -2509,29 +2509,29 @@ Postman请求已经导出，在db文件夹下
 
 原因是在发起请求的时候没有添加Basic Auth认证，如下图：
 
-![img](file:///D:/Documents/My%20Knowledge/temp/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/66251acd-e6cb-49fc-85fe-10bcb4e739d0.png)
+![img](file:///D:/Documents/My Knowledge/temp/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/66251acd-e6cb-49fc-85fe-10bcb4e739d0.png)
 
 添加Basic Auth认证后会在headers添加一个认证消息头
 
-![img](file:///D:/Documents/My%20Knowledge/temp/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/31b01d06-33a1-486d-8ab5-5c9ce0e26eda.png)
+![img](file:///D:/Documents/My Knowledge/temp/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/31b01d06-33a1-486d-8ab5-5c9ce0e26eda.png)
 
 添加Basic Auth认证的信息在代码中有体现：
 
-![img](file:///D:/Documents/My%20Knowledge/temp/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/e0999a39-65ab-4946-aad8-fe2bdc1dd07c.png)
+![img](file:///D:/Documents/My Knowledge/temp/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/e0999a39-65ab-4946-aad8-fe2bdc1dd07c.png)
 
 ## 问题：加密模式获取认证时返回Bad client credentials
 
 SecurityConfig中
 
-![img](file:///D:/Documents/My%20Knowledge/temp/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/e6da11c5-07a5-4ad3-a3f0-1916f4b00883.png)
+![img](file:///D:/Documents/My Knowledge/temp/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/e6da11c5-07a5-4ad3-a3f0-1916f4b00883.png)
 
 AuthorizationServerConfig中
 
-![img](file:///D:/Documents/My%20Knowledge/temp/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/cb32f0c4-fc3e-4d38-b745-9d1699e4640a.png)
+![img](file:///D:/Documents/My Knowledge/temp/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/cb32f0c4-fc3e-4d38-b745-9d1699e4640a.png)
 
 MyUserDetailService中
 
-![img](file:///D:/Documents/My%20Knowledge/temp/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/d0512e8f-2bfe-4dc7-8879-d414f659116d.png)
+![img](file:///D:/Documents/My Knowledge/temp/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/d0512e8f-2bfe-4dc7-8879-d414f659116d.png)
 
 ## **客户端信息和token信息从MySQL数据库中获取**
 
@@ -2543,29 +2543,29 @@ https://github.com/spring-projects/spring-security-oauth/blob/master/spring-secu
 
 其次，需要修改一下sql脚本，把主键的长度改为128，LONGVARBINARY类型改为blob，调整后的sql脚本在db文件夹中
 
-![img](file:///D:/Documents/My%20Knowledge/temp/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/6d63117d-b157-4c19-90cf-2616223ef815.png)
+![img](file:///D:/Documents/My Knowledge/temp/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/6d63117d-b157-4c19-90cf-2616223ef815.png)
 
 然后在数据库创建数据表，将客户端信息添加到oauth_client_details表中
 
 **注意**：**如果使用了BCryptPasswordEncoder加密，client_secret需要加密后存储**
 
-![img](file:///D:/Documents/My%20Knowledge/temp/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/76dec7ab-e9f6-40cc-bde1-33b6df299eef.png)
+![img](file:///D:/Documents/My Knowledge/temp/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/76dec7ab-e9f6-40cc-bde1-33b6df299eef.png)
 
 修改AuthorizationServerConfig中的三处配置
 
-![img](file:///D:/Documents/My%20Knowledge/temp/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/956f673a-e573-47ce-b28b-7b7c9df98235.png)
+![img](file:///D:/Documents/My Knowledge/temp/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/956f673a-e573-47ce-b28b-7b7c9df98235.png)
 
-![img](file:///D:/Documents/My%20Knowledge/temp/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/a7a3d606-efa3-4590-8490-64d7beb84d6c.png)
+![img](file:///D:/Documents/My Knowledge/temp/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/a7a3d606-efa3-4590-8490-64d7beb84d6c.png)
 
-![img](file:///D:/Documents/My%20Knowledge/temp/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/226b101f-d8ad-4ca2-94d1-10e6e068ef5c.png)
+![img](file:///D:/Documents/My Knowledge/temp/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/226b101f-d8ad-4ca2-94d1-10e6e068ef5c.png)
 
 使用postman调用后
 
 查看数据表，发现token数据已经存到表里了
 
-![img](file:///D:/Documents/My%20Knowledge/temp/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/22a92cd9-66eb-4836-8859-05bd95a7d040.png)
+![img](file:///D:/Documents/My Knowledge/temp/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/22a92cd9-66eb-4836-8859-05bd95a7d040.png)
 
-![img](file:///D:/Documents/My%20Knowledge/temp/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/97169e96-254f-4720-83d1-a8c9b22cbf76.png)
+![img](file:///D:/Documents/My Knowledge/temp/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/97169e96-254f-4720-83d1-a8c9b22cbf76.png)
 
 # 面试问题
 
