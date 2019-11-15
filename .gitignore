@@ -4,3 +4,9 @@ target
 rbase
 demo
 eureka-server
+springcloudserver/.idea
+springcloudserver/*.iml
+springcloudserver/target
+springcloudclient/.idea
+springcloudclient/*.iml
+springcloudclient/target
