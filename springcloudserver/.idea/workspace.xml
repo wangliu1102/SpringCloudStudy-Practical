@@ -2,7 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b9a54e5a-1f91-425f-9454-3db108a83087" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../springcloudclient/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloudclient/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eureka-server/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/eureka-server/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eureka-server/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/eureka-server/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oauth2/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/src/main/resources/config/oauth2-dev.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zuul/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/src/main/resources/config/gateway-dev.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zuul/target/classes/application.yml" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,6 +44,12 @@
         <option name="userSettingsFile" value="C:\codeTools\Maven\apache-maven-3.5.4\conf\settings.xml" />
       </MavenGeneralSettings>
     </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="jdkForImporter" value="1.8" />
+        <option name="vmOptionsForImporter" value="-Xmx768m" />
+      </MavenImportingSettings>
+    </option>
   </component>
   <component name="MavenRunner">
     <option name="jreName" value="#JAVA_HOME" />
@@ -51,16 +67,19 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../rbase" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/admin-monitor/src/main/resources" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.5617104" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="fileTemplates" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\study\code\javaee\springcloud\springcloudserver\config\src\main\resources\config" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.wl.springcloud.config" />
       <recent name="com.wl.springcloud.controller" />
@@ -69,14 +88,19 @@
       <recent name="com.wl.springcloud" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\study\code\javaee\springcloud\springcloudserver\admin-monitor\src\main\resources" />
       <recent name="D:\study\code\javaee\springcloud\springcloudserver\oauth2\src\main\java\com\wl\springcloud\dao" />
       <recent name="D:\study\code\javaee\springcloud\springcloudserver\oauth2\src\main\java\com\wl\springcloud\dao\mapping" />
       <recent name="D:\study\code\javaee\springcloud\springcloudserver\oauth2\src\main\java\com\wl\springcloud\config" />
       <recent name="D:\study\code\javaee\springcloud\springcloudserver" />
-      <recent name="D:\study\code\javaee\springcloud\springcloudserver\server-api\src\main\java\com\wl\springcloud" />
     </key>
   </component>
   <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
     <option name="ruleStates">
       <list>
         <RuleState>
@@ -88,21 +112,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.Oauth2Application">
-    <configuration name="AuthorizationServerConfig" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.wl.springcloud.config.oauth.AuthorizationServerConfig" />
-      <module name="oauth2" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.wl.springcloud.config.oauth.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Spring Boot.EurekaServerApplication7002">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <method v="2">
@@ -125,6 +135,19 @@
         </pattern>
       </extension>
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.wl.springcloud.AdminMonitorApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ConfigApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="config" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.wl.springcloud.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.wl.springcloud.ConfigApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -206,18 +229,44 @@
       <item itemvalue="Spring Boot.EurekaServerApplication7001" />
       <item itemvalue="Spring Boot.ZuulApplication" />
       <item itemvalue="Spring Boot.Oauth2Application" />
+      <item itemvalue="Spring Boot.ConfigApplication" />
       <item itemvalue="Spring Boot.AdminMonitorApplication" />
-      <item itemvalue="Application.AuthorizationServerConfig" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.ZuulApplication" />
         <item itemvalue="Spring Boot.Oauth2Application" />
+        <item itemvalue="Spring Boot.ConfigApplication" />
         <item itemvalue="Spring Boot.EurekaServerApplication7001" />
-        <item itemvalue="Application.AuthorizationServerConfig" />
         <item itemvalue="Spring Boot.AdminMonitorApplication" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="allServicesViewState">
+      <serviceView>
+        <option name="contentProportion" value="0.2391775" />
+        <treeState>
+          <expand>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@be799b13" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@be799b13" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@cc1dc970" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@be799b13" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@b0f9fe64" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+            </path>
+          </expand>
+          <select />
+        </treeState>
+      </serviceView>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration>C:\Users\wangl\AppData\Roaming\Subversion</configuration>
@@ -255,6 +304,12 @@
       <workItem from="1573176576292" duration="527000" />
       <workItem from="1573177907737" duration="13100000" />
       <workItem from="1573432182618" duration="21900000" />
+      <workItem from="1573521277290" duration="198000" />
+      <workItem from="1573523087500" duration="22000" />
+      <workItem from="1573542946250" duration="2665000" />
+      <workItem from="1573606003103" duration="42000" />
+      <workItem from="1573609306980" duration="176000" />
+      <workItem from="1573778376779" duration="6843000" />
     </task>
     <servers />
   </component>

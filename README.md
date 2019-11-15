@@ -965,6 +965,133 @@ SpringCloud Config分为服务端和客户端两部分。
 
 可参考：https://github.com/wangliu1102/SpringCloudStudy-atguigu 中的：SpringCloud Config分布式配置中心
 
+## 1、服务端
+
+导入相关依赖
+
+ 
+
+```
+        <!--配置中心-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-config-server</artifactId>
+        </dependency>
+```
+
+开启注解
+
+```
+@EnableConfigServer
+```
+
+![img](/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/e92b66c1-dcd7-4c07-9f88-f52ad528dca6.png)
+
+新建bootstrap.yml
+
+  application.yml是用户级的资源配置项。
+
+  bootstrap.yml是系统级的，优先级更高。
+
+Spring Cloud会创建一个Bootstrap Context，作为Spring应用的Application Context的父上下文。初始化的时候，Bootstrap Context负责从外部源加载配置属性并解析配置。这两个上下文共享一个从外部获取的Environment。Bootstrap属性有高优先级，默认情况下，它们不会被本地配置覆盖。Bootstrap Context和Application Context有着不同的约定，所以新增一个bootstrap.yml文件，保证Bootstrap Context和Application Context配置的分离。
+
+这里我们不使用GitHub来管理配置文件，而是通过config微服务来管理配置文件，如下会把其他微服务的配置文件配置在resources->config文件夹下：
+
+ 
+
+```
+server:
+  port: 3344
+spring:
+  application:
+    name: cloud-config
+  profiles:
+    active: native
+  # 配置中心
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: classpath:/config/
+eureka:
+  client:
+    service-url:
+      defaultZone: http://admin:123456@eureka7001.com:7001/eureka,http://admin:123456@eureka7002.com:7002/eureka
+  instance:
+    instance-id: cloud-config3344 #自定义服务名称信息
+    prefer-ip-address: true #访问路径可以显示IP地址
+info:
+  app.name: springcloud-server
+  company.name: www.wangliu.com
+  build.artifactId: '@project.artifactId@'
+  build.version: '@project.version@'
+# 暴露监控端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint: #health endpoint是否必须显示全部细节。默认情况下, /actuator/health 是公开的，并且不显示细节
+    health:
+      show-details: always
+```
+
+## 2、客户端
+
+考虑到很多微服务的配置文件都需要统计被集中管理在config微服务中，在父POM文件下配置客户端依赖，其他微服务就可以使用客户端配置了。
+
+在父POM文件下导入如下依赖：
+
+ 
+
+```
+        <!--配置中心客户端-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-config</artifactId>
+        </dependency>
+```
+
+新建bootstrap.yml，添加配置中心相关配置。
+
+ 
+
+```
+spring:
+  # 配置中心
+  cloud:
+    config:
+      fail-fast: true  #是否启动快速失败功能，功能开启则优先判断config server是否正常
+      name: ${spring.application.name}
+      profile: ${spring.profiles.active}
+      discovery: #配置服务发现
+        enabled: true #是否启动服务发现
+        service-id: cloud-config #服务发现(eureka)中，配置中心(config server)的服务名
+  profiles:
+    active: dev # 影响在config微服务下的resources->config文件夹下新建的配置文件名称
+  main:
+    allow-bean-definition-overriding: true #允许重名的bean可以被覆盖
+```
+
+在config微服务下的resources->config文件夹下，添加：服务名-dev.yml文件。然后再其中添加该客户端微服务的其他相关配置。
+
+注意：如果不想使用Config配置中心管理配置文件，需要在客户端新建bootstrap.yml文件，添加如下配置：
+
+ 
+
+```
+spring:
+  cloud:
+    config:
+      enabled: false #禁用config配置，否则报Could not locate PropertySource: I/O error on GET request for "http://localhost:8888
+```
+
+例如，我在zuul微服务和oauth2微服务中添加了配置中心相关配置，使用config来管理配置文件。而eureka-server服务注册中心中不使用config来管理配置文件。
+
+![img](/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/c3144c81-5771-4902-aee1-226363cad764.png)
+
+
+
 # swagger
 
 考虑到客户端都需要swagger，故在父POM文件中导入相关依赖
@@ -2491,7 +2618,7 @@ Postman请求已经导出，在db文件夹下
 
 ![img](/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/ecb04e45-d70d-4d73-9609-b95f8cc9fc92.png)
 
-**问题：****获取认证时返回401**
+## 问题：获取认证时返回401
 
 如下：
 

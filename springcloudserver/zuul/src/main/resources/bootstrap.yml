@@ -1,0 +1,44 @@
+server:
+  port: 9527
+spring:
+  application:
+    name: gateway
+  # 配置中心
+  cloud:
+    config:
+      fail-fast: true  #是否启动快速失败功能，功能开启则优先判断config server是否正常
+      name: ${spring.application.name}
+      profile: ${spring.profiles.active}
+      discovery: #配置服务发现
+        enabled: true #是否启动服务发现
+        service-id: cloud-config #服务发现(eureka)中，配置中心(config server)的服务名
+  profiles:
+    active: dev
+  main:
+    allow-bean-definition-overriding: true
+
+#---------------------OAuth2---------------------
+security:
+  oauth2:
+    client:
+      access-token-uri: http://localhost:${server.port}/auth/oauth/token
+      user-authorization-uri: http://localhost:${server.port}/auth/oauth/authorize
+      client-id: web
+    resource:
+      user-info-uri:  http://localhost:${server.port}/auth/api/member
+      prefer-token-info: false
+#---------------------OAuth2---------------------
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://admin:123456@eureka7001.com:7001/eureka,http://admin:123456@eureka7002.com:7002/eureka
+  instance:
+    instance-id: gateway9527 #自定义服务名称信息
+    prefer-ip-address: true #访问路径可以显示IP地址
+
+info:
+  app.name: springcloud-server
+  company.name: www.wangliu.com
+  build.artifactId: '@project.artifactId@'
+  build.version: '@project.version@'

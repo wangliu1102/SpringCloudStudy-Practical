@@ -1,8 +1,4 @@
-server:
-  port: 8081
 spring:
-  application:
-    name: oauth2
   redis:
     database: 5
     host: 47.99.241.160
@@ -93,25 +89,3 @@ mybatis-plus:
       db-type: mysql
   configuration:
     map-underscore-to-camel-case: true # 开启驼峰命名转换
-
-eureka:
-  client: #客户端注册进eureka服务列表内
-    service-url:
-      defaultZone: http://admin:123456@eureka7001.com:7001/eureka/,http://admin:123456@eureka7002.com:7002/eureka/
-  instance:
-    instance-id: oauth2_8081 #自定义服务名称信息
-    prefer-ip-address: true #访问路径可以显示IP地址
-info:
-  app.name: springcloud-server
-  company.name: www.wangliu.com
-  build.artifactId: '@project.artifactId@'
-  build.version: '@project.version@'
-
-management: #暴露actuator的所有端点
-  endpoints:
-    web:
-      exposure:
-        include: "*"
-  endpoint: #health endpoint是否必须显示全部细节。默认情况下, /actuator/health 是公开的，并且不显示细节
-    health:
-      show-details: always
