@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3762c519-7ffd-4a86-b584-ebc78d9b1f20" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloudserver/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloudserver/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloudserver/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloudserver/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloudserver/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloudserver/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloudserver/eureka-server/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloudserver/eureka-server/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloudserver/eureka-server/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloudserver/eureka-server/src/main/resources/bootstrap.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloudserver/eureka-server/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloudserver/eureka-server/target/classes/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloudserver/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloudserver/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloudserver/zuul/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloudserver/config/src/main/resources/config/gateway-dev.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloudserver/zuul/target/classes/application.yml" beforeDir="false" />
-    </list>
+    <list default="true" id="3762c519-7ffd-4a86-b584-ebc78d9b1f20" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -284,7 +271,7 @@
       <workItem from="1573177980773" duration="12400000" />
       <workItem from="1573432189010" duration="10217000" />
       <workItem from="1573521291361" duration="182000" />
-      <workItem from="1573780769053" duration="492000" />
+      <workItem from="1573780769053" duration="611000" />
     </task>
     <servers />
   </component>
