@@ -14,7 +14,7 @@ RabbitMQ下载地址:http://www.rabbitmq.com/install-windows.html
 成功下载rabbitmq-server.exe程序之后，还需要在Windows上安装Erlang for Windows。
 Erlang下载地址:http://www.erlang.org/downloads 。
 根据电脑的系统选择版本，我的是windows系统64位的，所以选择Windows 64-bit Binary File的。
-![这里写图片描述](/bf8960fb-e5b7-4ad4-9888-f6655824caa9\128\index_files\0.05919164442582631.png)
+![这里写图片描述](/bf8960fb-e5b7-4ad4-9888-f6655824caa9/128/index_files/0.05919164442582631.png)
 
 ![这里写图片描述](/bf8960fb-e5b7-4ad4-9888-f6655824caa9\128\index_files\0.8460081092213104.png)
 
