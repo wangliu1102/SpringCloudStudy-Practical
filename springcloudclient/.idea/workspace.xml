@@ -1,7 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3762c519-7ffd-4a86-b584-ebc78d9b1f20" name="Default" comment="" />
+    <list default="true" id="3762c519-7ffd-4a86-b584-ebc78d9b1f20" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.txlcn/student-8002.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/.txlcn/student-8002.mv.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/src/main/java/com/wl/springcloud/controller/StudentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/student/src/main/java/com/wl/springcloud/controller/StudentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/src/main/resources/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/target/classes/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/target/classes/com/wl/springcloud/controller/StudentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/student/target/classes/com/wl/springcloud/controller/StudentController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springcloudserver/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloudserver/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springcloudserver/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloudserver/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springcloudserver/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloudserver/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springcloudserver/oauth2/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloudserver/oauth2/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springcloudserver/oauth2/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloudserver/oauth2/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springcloudserver/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloudserver/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../springcloudserver/zuul/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloudserver/zuul/src/main/resources/bootstrap.yml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,6 +128,11 @@
     </key>
   </component>
   <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
     <option name="ruleStates">
       <list>
         <RuleState>
@@ -124,7 +144,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.MemberApplication">
+  <component name="RunManager" selected="Spring Boot.StudentApplication">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <method v="2">
@@ -219,12 +239,38 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.MemberApplication" />
         <item itemvalue="Spring Boot.StudentApplication" />
+        <item itemvalue="Spring Boot.MemberApplication" />
         <item itemvalue="Spring Boot.CourseApplication" />
         <item itemvalue="Spring Boot.EurekaClientApplication" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="allServicesViewState">
+      <serviceView>
+        <option name="contentProportion" value="0.15800866" />
+        <treeState>
+          <expand>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@317cef57" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@317cef57" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@1f86afe6" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@317cef57" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@7983bf0a" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+            </path>
+          </expand>
+          <select />
+        </treeState>
+      </serviceView>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration>C:\Users\wangl\AppData\Roaming\Subversion</configuration>
@@ -272,6 +318,10 @@
       <workItem from="1573432189010" duration="10217000" />
       <workItem from="1573521291361" duration="182000" />
       <workItem from="1573780769053" duration="611000" />
+      <workItem from="1574148093271" duration="9000" />
+      <workItem from="1574150963422" duration="5129000" />
+      <workItem from="1574159121557" duration="4460000" />
+      <workItem from="1574209197010" duration="4128000" />
     </task>
     <servers />
   </component>

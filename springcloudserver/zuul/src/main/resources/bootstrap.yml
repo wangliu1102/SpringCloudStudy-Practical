@@ -11,7 +11,8 @@ spring:
       profile: ${spring.profiles.active}
       discovery: #配置服务发现
         enabled: true #是否启动服务发现
-        service-id: cloud-config #服务发现(eureka)中，配置中心(config server)的服务名
+#        service-id: cloud-config #服务发现(eureka)中，配置中心(config server)的服务名
+        service-id: cloud-config-bus #服务发现(eureka)中，配置中心(config server)的服务名
   profiles:
     active: dev
   main:

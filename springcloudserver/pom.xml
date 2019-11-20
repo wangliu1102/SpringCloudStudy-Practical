@@ -15,6 +15,7 @@
         <module>server-api</module>
         <module>admin-monitor</module>
         <module>config</module>
+        <module>config-bus</module>
     </modules>
     <packaging>pom</packaging>
 

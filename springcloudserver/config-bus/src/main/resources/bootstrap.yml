@@ -1,0 +1,51 @@
+server:
+  port: 3355
+spring:
+  application:
+    name: cloud-config-bus
+#  profiles:
+#    active: native # 读取本地文件
+  # 配置中心
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/wangliu1102/microservicecloud-config
+          search-paths: /springcloud_bus #git仓库地址下的相对地址 多个用逗号","分割
+          force-pull: true #强制拉入Git存储库
+          # 访问git仓库的用户密码 如果Git仓库为公开仓库，可以不填写用户名和密码，如果是私有仓库需要填写
+#          username: ******
+#          password: ******
+    bus:
+      enabled: true #是否启用springcloud config bus
+      trace:
+        enabled: true # 开启跟踪总线事件
+  #rabbitmq配置
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+eureka:
+  client:
+    service-url:
+      defaultZone: http://admin:123456@eureka7001.com:7001/eureka,http://admin:123456@eureka7002.com:7002/eureka
+  instance:
+    instance-id: cloud-config-bus3355 #自定义服务名称信息
+    prefer-ip-address: true #访问路径可以显示IP地址
+
+info:
+  app.name: springcloud-server
+  company.name: www.wangliu.com
+  build.artifactId: '@project.artifactId@'
+  build.version: '@project.version@'
+
+# 暴露监控端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint: #health endpoint是否必须显示全部细节。默认情况下, /actuator/health 是公开的，并且不显示细节
+    health:
+      show-details: always

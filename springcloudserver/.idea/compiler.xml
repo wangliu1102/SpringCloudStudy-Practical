@@ -15,6 +15,7 @@
         <module name="oauth2" />
         <module name="eurekaserver" />
         <module name="config" />
+        <module name="configbus" />
       </profile>
     </annotationProcessing>
   </component>

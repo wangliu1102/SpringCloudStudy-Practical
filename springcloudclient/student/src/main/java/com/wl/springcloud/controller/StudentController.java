@@ -5,6 +5,8 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,12 +25,16 @@ import java.util.Map;
 @Controller
 @RequestMapping("/student")
 @Slf4j
+@RefreshScope
 public class StudentController {
+
+    @Value("${word}")
+    private String word;
 
     @Autowired
     private IStudentService studentService;
 
-    @ApiOperation(value="保存学生和选课")
+    @ApiOperation(value = "保存学生和选课")
     @RequestMapping(value = "/saveStudentAndCourse", method = RequestMethod.POST)
     @ResponseBody
     public Object saveStudentAndCourse(@RequestBody Map<String, Object> requestMap) {
@@ -44,11 +50,12 @@ public class StudentController {
         return map;
     }
 
-    @ApiOperation(value="查询学生列表")
+    @ApiOperation(value = "查询学生列表")
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     @ResponseBody
     public Object listCourse() {
         log.info("进入学生服务----->>学生列表");
+        log.info("word: " + word);
         return studentService.list();
     }
 }

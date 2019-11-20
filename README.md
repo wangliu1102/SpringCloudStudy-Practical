@@ -963,7 +963,13 @@ SpringCloud Config分为服务端和客户端两部分。
 - 当配置发生变动时，服务不需要重启即可感知到配置的变化并应用新的配置；
 - 将配置信息以REST接口的形式暴露。
 
-可参考：https://github.com/wangliu1102/SpringCloudStudy-atguigu 中的：SpringCloud Config分布式配置中心
+可参考：https://github.com/wangliu1102/SpringCloudStudy-atguigu 中的：SpringCloud Config分布式配置中心。
+
+
+
+ 配置到GitHub，配置文件放在Git仓库存储，可参考下面章节中的**SpringCloud Bus。**如下是将配置放在微服务中统一管理，配置文件放在本地存储，类似于公共类放在公共包里一样。 
+
+
 
 ## 1、服务端
 
@@ -1089,6 +1095,415 @@ spring:
 例如，我在zuul微服务和oauth2微服务中添加了配置中心相关配置，使用config来管理配置文件。而eureka-server服务注册中心中不使用config来管理配置文件。
 
 ![img](/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/c3144c81-5771-4902-aee1-226363cad764.png)
+
+
+
+
+
+# SpringCloud Bus + RabbitMQ/Kafka
+
+SpringCloud Bus 结合SpringCloud config可以动态更新配置。
+
+**步骤如下**:
+
+​    首先，在配置中进行更新配置文件信息，它就会自动触发post发送bus/refresh；
+
+​    然后服务端就会将更新的配置并且发送给Spring Cloud Bus；
+
+​    继而Spring Cloud bus接到消息之后并通知给使用该配置的客户端；
+
+​    最后使用该配置的客户端收到通知后，就会获取最新的配置进行更新；
+
+## **1、开发准备**
+
+​    RabbitMQ 的安装教程：[RabbitMQ的环境安装及配置(Windows)](./RabbitMQ的环境安装及配置(Windows).md)。
+
+​    Kafka 的安装教程：[Kafka安装使用教程(Linux)](./Kafka安装使用教程(Linux).md)。
+
+Spring Cloud Bus 主要的使用的MQ的是RabbitMQ和Kafka。至于使用的话就可以根据情况来进行选择，主要使用的是哪个MQ就用哪一个就行了。这里我们就用RabbitMQ作为示例来进行讲解，Kafka的使用也差不多，也无在乎配置更改而已。
+
+## 2、服务端
+
+新建config-bus微服务，基本配置和config一样。
+
+引入SpringCloud Bus依赖
+
+ 
+
+```
+     <!--actuator监控信息完善-->
+     <!--<dependency>
+         <groupId>org.springframework.boot</groupId>
+         <artifactId>spring-boot-starter-actuator</artifactId>
+     </dependency>-->
+    <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-starter-bus-amqp</artifactId>
+    </dependency>
+```
+
+注: spring-boot-starter-actuator是必须的，不然是无法在服务端进行配置刷新请求的。如果是使用的kafka的话，只需将spring-cloud-starter-bus-amqp改成spring-cloud-starter-bus-kafka即可。
+
+这里我们把spring-boot-starter-actuator放在了父POM文件中。
+
+修改bootstrap.yml配置文件，添加bus和RabbitMQ相关配置，并暴露监控端点（不然是无法在服务端进行配置刷新请求的）。
+
+如果是kafka的话，不用添加RabbitMQ相关配置，添加kafka的配置信息spring.kafka.bootstrap-servers，填写kafka的地址和端口即可。
+
+ 
+
+```
+spring:
+  kafka:
+    bootstrap-servers: 192.168.1.172:9092   #配置 kafka 服务器的地址和端口
+```
+
+**这里必须使用Git仓库来管理配置文件**：
+
+Git仓库地址：https://github.com/wangliu1102/microservicecloud-config
+
+ 
+
+```
+server:
+  port: 3355
+spring:
+  application:
+    name: cloud-config-bus
+#  profiles:
+#    active: native # 读取本地文件，开启就不会从Git上拉取配置文件
+  # 配置中心
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/wangliu1102/microservicecloud-config
+          search-paths: /springcloud_bus #git仓库地址下的相对地址 多个用逗号","分割
+          force-pull: true #强制拉入Git存储库
+          # 访问git仓库的用户密码 如果Git仓库为公开仓库，可以不填写用户名和密码，如果是私有仓库需要填写
+#          username: ******
+#          password: ******
+    bus:
+      enabled: true #是否启用springcloud config bus
+      trace:
+        enabled: true # 开启跟踪总线事件
+  #rabbitmq配置
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+eureka:
+  client:
+    service-url:
+      defaultZone: http://admin:123456@eureka7001.com:7001/eureka,http://admin:123456@eureka7002.com:7002/eureka
+  instance:
+    instance-id: cloud-config-bus3355 #自定义服务名称信息
+    prefer-ip-address: true #访问路径可以显示IP地址
+info:
+  app.name: springcloud-server
+  company.name: www.wangliu.com
+  build.artifactId: '@project.artifactId@'
+  build.version: '@project.version@'
+# 暴露监控端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint: #health endpoint是否必须显示全部细节。默认情况下, /actuator/health 是公开的，并且不显示细节
+    health:
+      show-details: always
+```
+
+![img](/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/06089180-d751-42ef-9127-a89a32f5ff8e.png)
+
+## 3、客户端
+
+这里使用了student微服务来操作。考虑客户端需要使用SpringCloud Config来管理配置文件，我们在父POM文件中引入依赖
+
+ 
+
+```
+        <!--配置中心客户端-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-config</artifactId>
+        </dependency>
+        <!--SpringCloud Bus + RabbitMQ-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bus-amqp</artifactId>
+        </dependency>
+```
+
+修改bootstrap.yml，如下：
+
+ 
+
+```
+server:
+  port: 8002
+spring:
+  application:
+    name: student
+  # 配置中心
+  cloud:
+    config:
+      fail-fast: true  #是否启动快速失败功能，功能开启则优先判断config server是否正常
+      name: ${spring.application.name}
+      profile: ${spring.profiles.active}
+      discovery: #配置服务发现
+        enabled: true #是否启动服务发现
+        #        service-id: cloud-config #服务发现(eureka)中，配置中心(config server)的服务名
+        service-id: cloud-config-bus #服务发现(eureka)中，配置中心(config server)的服务名
+      label: master #获取配置文件的分支，默认是master。如果是是本地获取的话，则无用
+  profiles:
+    active: dev
+  main:
+    allow-bean-definition-overriding: true
+eureka:
+  client: #客户端注册进eureka服务列表内
+    service-url:
+      defaultZone: http://admin:123456@eureka7001.com:7001/eureka/,http://admin:123456@eureka7002.com:7002/eureka/
+  instance:
+    instance-id: student8002 #自定义服务名称信息
+    prefer-ip-address: true #访问路径可以显示IP地址
+info:
+  app.name: springcloud-client
+  company.name: www.wangliu.com
+  build.artifactId: '@project.artifactId@'
+  build.version: '@project.version@'
+```
+
+修改student-dev.yml配置文件，添加bus和RabbitMQ相关配置，并 暴露监控端点。该配置文件时通过config-bus，来保存在GitHub仓库中的。
+
+ 
+
+```
+spring:
+  cloud:
+    bus:
+      trace:
+        enabled: true # 开启跟踪总线事件
+  #rabbitmq配置
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+  datasource:
+    # 数据库驱动
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    # druid连接池
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://localhost:3306/clouddb01?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8
+    username: root
+    password: 123456
+    # 数据源其他配置
+    druid:
+      # 初始化时建立物理连接的个数。初始化发生在显示调用init方法，或者第一次getConnection时
+      initial-size: 5
+      # 最小连接池数量
+      min-idle: 5
+      # 最大连接池数量
+      max-active: 20
+      # 获取连接时最大等待时间，单位毫秒。配置了maxWait之后，缺省启用公平锁，并发效率会有所下降，如果需要可以通过配置useUnfairLock属性为true使用非公平锁。
+      max-wait: 60000
+      # 有两个含义：
+      # 1) Destroy线程会检测连接的间隔时间
+      # 2) testWhileIdle的判断依据，详细看testWhileIdle属性的说明
+      time-between-eviction-runs-millis: 60000
+      #Destory线程中如果检测到当前连接的最后活跃时间和当前时间的差值大于minEvictableIdleTimeMillis，则关闭当前连接。
+      min-evictable-idle-time-millis: 300000
+      # 用来检测连接是否有效的sql，要求是一个查询语句。如果validationQuery为null，testOnBorrow、testOnReturn、testWhileIdle都不会其作用。在mysql中通常为select 'x'，在oracle中通常为select 1 from dual
+      validation-query: SELECT 'x'
+      # 建议配置为true，不影响性能，并且保证安全性。申请连接的时候检测，如果空闲时间大于timeBetweenEvictionRunsMillis，执行validationQuery检测连接是否有效。
+      test-while-idle: true
+      # 申请连接时执行validationQuery检测连接是否有效，做了这个配置会降低性能。
+      test-on-borrow: false
+      # 归还连接时执行validationQuery检测连接是否有效，做了这个配置会降低性能
+      test-on-return: false
+      # 是否缓存preparedStatement，也就是PSCache。PSCache对支持游标的数据库性能提升巨大，比如说oracle。在mysql5.5以下的版本中没有PSCache功能，建议关闭掉。5.5及以上版本有PSCache，建议开启。
+      pool-prepared-statements: true
+      # 指定每个连接上PSCache的大小
+      max-pool-prepared-statement-per-connection-size: 20
+      # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+      # 属性类型是字符串，通过别名的方式配置扩展插件，常用的插件有：监控统计用的filter:stat、日志用的filter:log4j、防御sql注入的filter:wall
+      filters: stat,wall
+      # 合并多个DruidDataSource的监控数据
+      use-global-data-source-stat: true
+      # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+      connect-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+mybatis-plus:
+  mapper-locations: classpath*:com/wl/springcloud/**/mapping/*.xml
+  global-config:
+    banner: false # 是否控制台 print mybatis-plus 的 LOGO
+    db-config:
+      # 主键类型 auto:数据库ID自增 input:用户输入ID id_worker:全局唯一ID(数字类型唯一ID) uuid:全局唯一ID(UUID) id_worker_str:全局唯一ID(字符串类型唯一ID) none:
+      id-type: auto
+      #字段策略 default:默认,ignored:"忽略判断",not_null:"非 NULL 判断",not_empty:"非空判断"
+      field-strategy: not_null
+      # 默认数据库表下划线命名
+      table-underline: true
+      # 逻辑删除配置
+      # 逻辑删除全局值（1表示已删除，这也是Mybatis Plus的默认配置）
+      logic-delete-value: 1
+      # 逻辑未删除全局值（0表示未删除，这也是Mybatis Plus的默认配置）
+      logic-not-delete-value: 0
+      db-type: mysql
+  configuration:
+    map-underscore-to-camel-case: true # 开启驼峰命名转换
+feign:
+  hystrix:
+    enabled: true
+#tx-lcn:
+#  # 是否启动LCN负载均衡策略(优化选项，开启与否，功能不受影响)
+#  ribbon:
+#    loadbalancer:
+#      dtx:
+#        enabled: true
+#  client:
+#    # tx-manager 的配置地址，可以指定TM集群中的任何一个或多个地址
+#    # tx-manager 下集群策略，每个TC都会从始至终<断线重连>与TM集群保持集群大小个连接。
+#    # TM方，每有TM进入集群，会找到所有TC并通知其与新TM建立连接。
+#    # TC方，启动时按配置与集群建立连接，成功后，会再与集群协商，查询集群大小并保持与所有TM的连接
+#    manager-address: 127.0.0.1:8070
+#    # 调用链长度等级，默认值为3（优化选项。系统中每个请求大致调用链平均长度，估算值。）
+#    chain-level: 3
+#    # 该参数为tc与tm通讯时的最大超时时间，单位ms。该参数不需要配置会在连接初始化时由tm返回。
+#    tm-rpc-timeout: 2000
+#    # 该参数为分布式事务的最大时间，单位ms。该参数不允许TC方配置，会在连接初始化时由tm返回。
+#    dtx-time: 8000
+#    # 该参数为雪花算法的机器编号，所有TC不能相同。该参数不允许配置，会在连接初始化时由tm返回。
+#    machine-id: 1
+#    # 该参数为事务方法注解切面的orderNumber，默认值为0.
+#    dtx-aspect-order: 0
+#    # 该参数为事务连接资源方法切面的orderNumber，默认值为0.
+#    resource-order: 0
+#  # 该参数是分布式事务框架存储的业务切面信息。采用的是h2数据库。绝对路径。该参数默认的值为{user.dir}/.txlcn/{application.name}-{application.port}
+#  aspect:
+#    log:
+#      file-path: logs/.txlcn/demo-8080
+#  # 是否开启日志记录。当开启以后需要配置对应logger的数据库连接配置信息。
+#  logger:
+#    enabled: false
+#    driver-class-name: ${spring.datasource.driver-class-name}
+#    jdbc-url: ${spring.datasource.url}
+#    username: ${spring.datasource.username}
+#    password: ${spring.datasource.password}
+#tm:
+#  manager:
+#    url: http://127.0.0.1:8070/tx/manager/
+#设置日志等级为debug等级，这样方便追踪排查问题
+logging:
+  level:
+    com:
+      codingapi: debug
+tx-lcn:
+  client:
+    manager-address: 127.0.0.1:8070
+# 暴露监控端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+word: wangliu # 用来测试SpringCloud Bus拉取更新配置的字段
+```
+
+在student微服务中添加注解@RefreshScope，通过@Value来获取配置文件中word的内容：
+
+ 
+
+```
+/**
+ * Created by 王柳
+ * Date 2019/10/2 15:49
+ * version:1.0
+ */
+@Api(tags = "学生服务")
+@Controller
+@RequestMapping("/student")
+@Slf4j
+@RefreshScope
+public class StudentController {
+    @Value("${word}")
+    private String word;
+    @Autowired
+    private IStudentService studentService;
+    @ApiOperation(value = "保存学生和选课")
+    @RequestMapping(value = "/saveStudentAndCourse", method = RequestMethod.POST)
+    @ResponseBody
+    public Object saveStudentAndCourse(@RequestBody Map<String, Object> requestMap) {
+        log.info("进入学生服务----->>添加学生");
+        Map map = new HashMap();
+        try {
+            map = studentService.saveStudent(requestMap);
+        } catch (Exception e) {
+            e.printStackTrace();
+            map.put("code", "-1");
+            map.put("msg", "保存失败");
+        }
+        return map;
+    }
+    @ApiOperation(value = "查询学生列表")
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    @ResponseBody
+    public Object listCourse() {
+        log.info("进入学生服务----->>学生列表");
+        log.info("word: " + word);
+        return studentService.list();
+    }
+}
+```
+
+分别启动eureka-7001、eureka-7002、config-bus、lcn-tm(student依赖的微服务)、student微服务
+
+使用postman调用学生服务student中的list请求：
+
+ 
+
+```
+localhost:8002/student/list
+```
+
+查看控制台内容：
+
+![img](/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/8a0641c1-dde7-4e53-8d0f-7e0df916d3d5.png)
+
+修改Git仓库上的student-dev.yml配置文件中的word：
+
+ 
+
+```
+word: hello
+```
+
+使用Postman工具进行发起POST请求，地址是服务端config-bus的地址和端口。
+
+使用POST请求如下地址:
+
+ 
+
+```
+http://localhost:3355actuator/bus-refresh
+```
+
+可以看到控制台有修改：
+
+![img](/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/c9d5dfc2-93e0-4997-8226-166f51ef0808.png)
+
+然后再次调用学生服务student中的list请求。控制台查看：
+
+![img](/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/9ea40ed9-1617-477c-b942-248bd44c21c0.png)
+
+# 
+
+
 
 
 

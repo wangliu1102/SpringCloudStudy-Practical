@@ -1,0 +1,56 @@
+#prefix表示访问前缀，ignored-services忽略所有请求，不包括zuul.routes指定的路径,
+#zuul:
+#  prefix: /abc
+#  ignored-services: "*"
+
+# routes to serviceId 这里边是通过serviceId来绑定地址，当在路径后添加/api-a/   则是访问service-A对应的服务。
+# ** 表示多层级，*表示单层级
+zuul:
+  routes:
+    defalutApi:
+      path: /api/**
+      serviceId: student
+    apiB:
+      path: /admin/**
+      serviceId: course
+    oa:
+      path: /oa/**
+      serviceId: oa
+    member:
+      path: /member/**
+      serviceId: member
+      sensitiveHeaders: "*"
+    auth:
+      path: /auth/**
+      serviceId: oauth2
+      sensitiveHeaders: "*"
+  retryable: false
+  ignored-services: "*"
+  ribbon:
+    eager-load:
+      enabled: true
+  host:
+    connect-timeout-millis: 3000
+    socket-timeout-millis: 3000
+  add-proxy-headers: true
+
+# Zuul超时
+# 对于通过serviceId路由的服务,需要设置两个参数：ribbon.ReadTimeout 和ribbon.SocketTimeout
+# 对于通过url路由的服务,需要设置两个参数：zuul.host.socket-timeout-millis或zuul.host.connect-timeout-millis
+ribbon:
+  ReadTimeout: 3000  # 单位毫秒数
+  SocketTimeout: 3000
+  MaxAutoRetries: 1
+  MaxAutoRetriesNextServer: 2
+  eureka:
+    enabled: true
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: true
+        isolation:
+          thread:
+            timeoutInMilliseconds: 24000
+

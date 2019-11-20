@@ -1,8 +1,8 @@
 server:
-  port: 8081
+  port: 8002
 spring:
   application:
-    name: oauth2
+    name: student
   # 配置中心
   cloud:
     config:
@@ -11,8 +11,9 @@ spring:
       profile: ${spring.profiles.active}
       discovery: #配置服务发现
         enabled: true #是否启动服务发现
-#        service-id: cloud-config #服务发现(eureka)中，配置中心(config server)的服务名
+        #        service-id: cloud-config #服务发现(eureka)中，配置中心(config server)的服务名
         service-id: cloud-config-bus #服务发现(eureka)中，配置中心(config server)的服务名
+      label: master #获取配置文件的分支，默认是master。如果是是本地获取的话，则无用
   profiles:
     active: dev
   main:
@@ -23,19 +24,11 @@ eureka:
     service-url:
       defaultZone: http://admin:123456@eureka7001.com:7001/eureka/,http://admin:123456@eureka7002.com:7002/eureka/
   instance:
-    instance-id: oauth2_8081 #自定义服务名称信息
+    instance-id: student8002 #自定义服务名称信息
     prefer-ip-address: true #访问路径可以显示IP地址
 info:
-  app.name: springcloud-server
+  app.name: springcloud-client
   company.name: www.wangliu.com
   build.artifactId: '@project.artifactId@'
   build.version: '@project.version@'
 
-management: #暴露actuator的所有端点
-  endpoints:
-    web:
-      exposure:
-        include: "*"
-  endpoint: #health endpoint是否必须显示全部细节。默认情况下, /actuator/health 是公开的，并且不显示细节
-    health:
-      show-details: always

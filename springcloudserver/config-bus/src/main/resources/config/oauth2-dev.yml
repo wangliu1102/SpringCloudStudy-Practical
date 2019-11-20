@@ -1,9 +1,14 @@
-server:
-  port: 8002
 spring:
-  application:
-    name: student
-    #name: 'student'
+  redis:
+    database: 5
+    host: 47.99.241.160
+    port: 6379
+    password: ahhs2019
+    jedis:
+      pool:
+        max-active: 8
+        max-idle: 8
+        min-idle: 0
   datasource:
     # 数据库驱动
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -12,7 +17,7 @@ spring:
     url: jdbc:mysql://localhost:3306/clouddb01?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8
     username: root
     password: 123456
-    # 数据源其他配置
+    # 数据源其他配置 druid-spring-boot-starter省去了@Configuration在代码中配置
     druid:
       # 初始化时建立物理连接的个数。初始化发生在显示调用init方法，或者第一次getConnection时
       initial-size: 5
@@ -41,13 +46,30 @@ spring:
       # 指定每个连接上PSCache的大小
       max-pool-prepared-statement-per-connection-size: 20
       # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
-      # 属性类型是字符串，通过别名的方式配置扩展插件，常用的插件有：监控统计用的filter:stat、日志用的filter:log4j、防御sql注入的filter:wall
-      filters: stat,wall
+      # 属性类型是字符串，通过别名的方式配置扩展插件，常用的插件有：监控统计用的filter:stat、日志用的filter:slf4j、防御sql注入的filter:wall
+      filters: stat,wall,slf4j
       # 合并多个DruidDataSource的监控数据
       use-global-data-source-stat: true
       # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
       connect-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
-
+      # 配置DruidStatFilter
+      web-stat-filter:
+        enabled: true
+        url-pattern: "/*"
+        exclusions: "*.js,*.gif,*.jpg,*.bmp,*.png,*.css,*.ico,/druid/*"
+      # 配置DruidStatViewServlet
+      stat-view-servlet:
+        url-pattern: "/druid/*"
+        # IP白名单(没有配置或者为空，则允许所有访问)
+        allow: 127.0.0.1,192.168.253.128
+        # IP黑名单 (存在共同时，deny优先于allow)
+        deny: 192.168.1.73
+        #  禁用HTML页面上的“Reset All”功能
+        reset-enable: false
+        # 登录名
+        login-username: admin
+        # 登录密码
+        login-password: 123456
 mybatis-plus:
   mapper-locations: classpath*:com/wl/springcloud/**/mapping/*.xml
   global-config:
@@ -67,68 +89,3 @@ mybatis-plus:
       db-type: mysql
   configuration:
     map-underscore-to-camel-case: true # 开启驼峰命名转换
-
-eureka:
-  client: #客户端注册进eureka服务列表内
-    service-url:
-      defaultZone: http://admin:123456@eureka7001.com:7001/eureka/,http://admin:123456@eureka7002.com:7002/eureka/
-  instance:
-    instance-id: student8002 #自定义服务名称信息
-    prefer-ip-address: true #访问路径可以显示IP地址
-info:
-  app.name: springcloud-client
-  company.name: www.wangliu.com
-  build.artifactId: 'student'
-  build.version: '1.0-SNAPSHOT'
-
-feign:
-  hystrix:
-    enabled: true
-
-#tx-lcn:
-#  # 是否启动LCN负载均衡策略(优化选项，开启与否，功能不受影响)
-#  ribbon:
-#    loadbalancer:
-#      dtx:
-#        enabled: true
-#  client:
-#    # tx-manager 的配置地址，可以指定TM集群中的任何一个或多个地址
-#    # tx-manager 下集群策略，每个TC都会从始至终<断线重连>与TM集群保持集群大小个连接。
-#    # TM方，每有TM进入集群，会找到所有TC并通知其与新TM建立连接。
-#    # TC方，启动时按配置与集群建立连接，成功后，会再与集群协商，查询集群大小并保持与所有TM的连接
-#    manager-address: 127.0.0.1:8070
-#    # 调用链长度等级，默认值为3（优化选项。系统中每个请求大致调用链平均长度，估算值。）
-#    chain-level: 3
-#    # 该参数为tc与tm通讯时的最大超时时间，单位ms。该参数不需要配置会在连接初始化时由tm返回。
-#    tm-rpc-timeout: 2000
-#    # 该参数为分布式事务的最大时间，单位ms。该参数不允许TC方配置，会在连接初始化时由tm返回。
-#    dtx-time: 8000
-#    # 该参数为雪花算法的机器编号，所有TC不能相同。该参数不允许配置，会在连接初始化时由tm返回。
-#    machine-id: 1
-#    # 该参数为事务方法注解切面的orderNumber，默认值为0.
-#    dtx-aspect-order: 0
-#    # 该参数为事务连接资源方法切面的orderNumber，默认值为0.
-#    resource-order: 0
-#  # 该参数是分布式事务框架存储的业务切面信息。采用的是h2数据库。绝对路径。该参数默认的值为{user.dir}/.txlcn/{application.name}-{application.port}
-#  aspect:
-#    log:
-#      file-path: logs/.txlcn/demo-8080
-#  # 是否开启日志记录。当开启以后需要配置对应logger的数据库连接配置信息。
-#  logger:
-#    enabled: false
-#    driver-class-name: ${spring.datasource.driver-class-name}
-#    jdbc-url: ${spring.datasource.url}
-#    username: ${spring.datasource.username}
-#    password: ${spring.datasource.password}
-
-#tm:
-#  manager:
-#    url: http://127.0.0.1:8070/tx/manager/
-#设置日志等级为debug等级，这样方便追踪排查问题
-logging:
-  level:
-    com:
-      codingapi: debug
-tx-lcn:
-  client:
-    manager-address: 127.0.0.1:8070

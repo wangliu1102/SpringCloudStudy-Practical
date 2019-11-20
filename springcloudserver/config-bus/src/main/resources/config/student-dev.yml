@@ -1,9 +1,14 @@
-server:
-  port: 8002
 spring:
-  application:
-    name: student
-    #name: '@artifactId@'
+  cloud:
+    bus:
+      trace:
+        enabled: true # 开启跟踪总线事件
+  #rabbitmq配置
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
   datasource:
     # 数据库驱动
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -68,19 +73,6 @@ mybatis-plus:
   configuration:
     map-underscore-to-camel-case: true # 开启驼峰命名转换
 
-eureka:
-  client: #客户端注册进eureka服务列表内
-    service-url:
-      defaultZone: http://admin:123456@eureka7001.com:7001/eureka/,http://admin:123456@eureka7002.com:7002/eureka/
-  instance:
-    instance-id: student8002 #自定义服务名称信息
-    prefer-ip-address: true #访问路径可以显示IP地址
-info:
-  app.name: springcloud-client
-  company.name: www.wangliu.com
-  build.artifactId: '@project.artifactId@'
-  build.version: '@project.version@'
-
 feign:
   hystrix:
     enabled: true
@@ -132,3 +124,13 @@ logging:
 tx-lcn:
   client:
     manager-address: 127.0.0.1:8070
+# 暴露监控端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+word: hihi
