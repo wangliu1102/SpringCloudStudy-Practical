@@ -1,5 +1,5 @@
 # SpringCloudStudy-Practical
-本项目是SpringCloud实战学习，集成了eureka、fegin、zuul、分布式事务tx-lcn、swagger、Spring Security、SpringBoot Admin、Oauth2（redis和mysql两种存储方式）、SpringCloud Config
+本项目是SpringCloud实战学习，集成了eureka、fegin、zuul、分布式事务tx-lcn、swagger、Spring Security、SpringBoot Admin、Oauth2（redis和mysql两种存储方式）、SpringCloud Config、SpringCloud Bus
 
 项目分为两部分，服务端springcloudserver和客户端springcloudclient
 
