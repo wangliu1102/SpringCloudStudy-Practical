@@ -89,7 +89,7 @@ touch myid
 
 创建成功之后，更改myid文件。
 我这边为了方便，将master、slave1、slave2的myid文件内容改为1,2,3
-![这里写图片描述](/4f5ee76f-6b04-400a-ab06-c6623b97b310\128\index_files\0.6411029816132123.png)
+![这里写图片描述](/4f5ee76f-6b04-400a-ab06-c6623b97b310/128/index_files/0.6411029816132123.png)
 
 #### 3.3.2 新建zoo.cfg
 
@@ -106,7 +106,7 @@ server.3=slave2:2888:3888
 
 ```
 
-![这里写图片描述](/4f5ee76f-6b04-400a-ab06-c6623b97b310\128\index_files\0.7236081852251106.png)
+![这里写图片描述](/4f5ee76f-6b04-400a-ab06-c6623b97b310/128/index_files/0.7236081852251106.png)
 
 **说明**：client port，顾名思义，就是客户端连接zookeeper服务的端口。这是一个TCP port。dataLogDir里是放到的顺序日志(WAL)。而dataDir里放的是内存数据结构的snapshot，便于快速恢复。为了达到性能最大化，一般建议把dataDir和dataLogDir分到不同的磁盘上，这样就可以充分利用磁盘顺序写的特性。dataDir和dataLogDir需要自己创建，目录可以自己制定，对应即可。server.1中的这个1需要和master这个机器上的dataDir目录中的myid文件中的数值对应。server.2中的这个2需要和slave1这个机器上的dataDir目录中的myid文件中的数值对应。server.3中的这个3需要和slave2这个机器上的dataDir目录中的myid文件中的数值对应。当然，数值你可以随便用，只要对应即可。2888和3888的端口号也可以随便用，因为在不同机器上，用成一样也无所谓。
 1.tickTime：CS通信心跳数
@@ -155,7 +155,7 @@ zkServer.sh status
 ```
 
 可以查看各个机器上zookeeper的leader和follower
-![这里写图片描述](/4f5ee76f-6b04-400a-ab06-c6623b97b310\128\index_files\0.06189427563251149.png)
+![这里写图片描述](/4f5ee76f-6b04-400a-ab06-c6623b97b310/128/index_files/0.06189427563251149.png)
 
 ## Storm 环境安装
 
@@ -190,7 +190,7 @@ export PATH=.:${JAVA_HOME}/bin:${ZK_HOME}/bin:${STORM_HOME}/bin:$PATH
 ```
 
 输入 storm version 查看版本信息
-![这里写图片描述](/4f5ee76f-6b04-400a-ab06-c6623b97b310\128\index_files\0.7496339918557966.png)
+![这里写图片描述](/4f5ee76f-6b04-400a-ab06-c6623b97b310/128/index_files/0.7496339918557966.png)
 
 ### 3，修改配置文件
 
@@ -215,7 +215,7 @@ supervisor.slots.ports:
 
 ```
 
-![这里写图片描述](/4f5ee76f-6b04-400a-ab06-c6623b97b310\128\index_files\0.4474618742943961.png)
+![这里写图片描述](/4f5ee76f-6b04-400a-ab06-c6623b97b310/128/index_files/0.4474618742943961.png)
 **说明:**
 
 1. storm.zookeeper.servers是指定zookeeper的服务地址。
@@ -231,7 +231,7 @@ supervisor.slots.ports:
 **注**: 这些配置前面不要有空格！！！，不然会报错。 这里使用的是主机名(做了映射)，也可以使用IP。实际的以自己的为准。
 
 可以使用scp命令或者ftp软件将storm复制到其他机器上
-![这里写图片描述](/4f5ee76f-6b04-400a-ab06-c6623b97b310\128\index_files\0.01653076347279775.png)
+![这里写图片描述](/4f5ee76f-6b04-400a-ab06-c6623b97b310/128/index_files/0.01653076347279775.png)
 
 成功配置之后，然后就可以启动Storm了，不过要确保JDK、Zookeeper已经正确安装，并且Zookeeper已经成功启动。
 
@@ -261,7 +261,7 @@ storm supervisor >/dev/null 2>&1 &
 
 在浏览器界面输入: 8080端口
 成功打开该界面，表示环境配置成功:
-![这里写图片描述](/4f5ee76f-6b04-400a-ab06-c6623b97b310\128\index_files\0.3347106004091464.png)
+![这里写图片描述](/4f5ee76f-6b04-400a-ab06-c6623b97b310/128/index_files/0.3347106004091464.png)
 
 ## kafka的环境安装
 
@@ -343,7 +343,7 @@ kafka-server-start.sh
 ```
 
 然后输入jps名称查看是否成功启动:
-![这里写图片描述](/4f5ee76f-6b04-400a-ab06-c6623b97b310\128\index_files\0.025355824410566146.png)
+![这里写图片描述](/4f5ee76f-6b04-400a-ab06-c6623b97b310/128/index_files/0.025355824410566146.png)
 
 成功启动之后，可以进行简单的测试下
 首先创建个topic
@@ -364,7 +364,7 @@ kafka-console-producer.sh --broker-list master:9092 --topic t_test
 
 ```
 
-![这里写图片描述](/4f5ee76f-6b04-400a-ab06-c6623b97b310\128\index_files\0.14326471966115914.png)
+![这里写图片描述](/4f5ee76f-6b04-400a-ab06-c6623b97b310/128/index_files/0.14326471966115914.png)
 
 可以使用进行Ctrl+D 退出
 
@@ -377,7 +377,7 @@ kafka-console-consumer.sh --zookeeper master:2181 --topic t_test --from-beginnin
 
 ```
 
-![这里写图片描述](/4f5ee76f-6b04-400a-ab06-c6623b97b310\128\index_files\0.22502356510428909.png)
+![这里写图片描述](/4f5ee76f-6b04-400a-ab06-c6623b97b310/128/index_files/0.22502356510428909.png)
 可以使用进行Ctrl+C 退出
 
 可以看到数据已经正常消费了。
