@@ -2,20 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b9a54e5a-1f91-425f-9454-3db108a83087" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/../springcloudclient/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloudclient/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloudclient/.txlcn/student-8002.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloudclient/.txlcn/student-8002.mv.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloudclient/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloudclient/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloudclient/student/src/main/java/com/wl/springcloud/controller/StudentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloudclient/student/src/main/java/com/wl/springcloud/controller/StudentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloudclient/student/src/main/resources/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloudclient/student/target/classes/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springcloudclient/student/target/classes/com/wl/springcloud/controller/StudentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../springcloudclient/student/target/classes/com/wl/springcloud/controller/StudentController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oauth2/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/oauth2/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oauth2/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/oauth2/src/main/resources/bootstrap.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zuul/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/zuul/src/main/resources/bootstrap.yml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -319,6 +306,9 @@
       <workItem from="1574134982189" duration="15112000" />
       <workItem from="1574159107219" duration="4748000" />
       <workItem from="1574209184599" duration="4734000" />
+      <workItem from="1574228101046" duration="127000" />
+      <workItem from="1574229007733" duration="260000" />
+      <workItem from="1574229306938" duration="17000" />
     </task>
     <servers />
   </component>

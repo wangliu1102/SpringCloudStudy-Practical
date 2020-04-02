@@ -139,7 +139,7 @@ Eureka Client是一个Java客户端，用于简化Eureka Server的交互，客�
 @EnableEurekaServer
 ```
 
-   ![img](/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/27c09413-3aa8-4938-8aee-ee718121f6cc.png)
+   ![img](a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/27c09413-3aa8-4938-8aee-ee718121f6cc.png)
 
  使用多个配置文件启动多个eureka服务，需要设置配置文件名称，把共有部分放在application.yml中，独有部分放在自己文件中，并在启动参数Program arguments中设置
 
@@ -149,7 +149,7 @@ Eureka Client是一个Java客户端，用于简化Eureka Server的交互，客�
 --spring.profiles.active=eureka7002
 ```
 
-![img](/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/aac61653-c86a-40a1-9b37-cd5a0d10d9f1.png)
+![img](a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/aac61653-c86a-40a1-9b37-cd5a0d10d9f1.png)
 
 新建配置文件application.yml、application-eureka7001、application-eureka7002.yml
 
@@ -192,7 +192,7 @@ eureka:
 
 eureka.instance.hostname配置的实例名称需要在host文件中配置：
 
-![img](/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/dbb572dc-66f5-4105-9747-6342ab44cfda.png)
+![img](a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/dbb572dc-66f5-4105-9747-6342ab44cfda.png)
 
 启动Eureka服务端后，可以在浏览器中访问：
 
@@ -256,7 +256,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 }
 ```
 
-![img](/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/4f59fe97-aec4-45aa-9131-582b0bb0ea29.png)
+![img](a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/4f59fe97-aec4-45aa-9131-582b0bb0ea29.png)
 
 ## 3、客户端
 
@@ -326,9 +326,9 @@ info: #点击链接会跳转显示/actuator/info信息
   build.version: '@project.version@'
 ```
 
-![img](/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/7941b082-0820-4f5f-b022-bacc3dd375ab.png)
+![img](a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/7941b082-0820-4f5f-b022-bacc3dd375ab.png)
 
-![img](/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/59b2f537-35a3-4cda-a5ac-c7a6c66ce1c7.png)
+![img](a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/59b2f537-35a3-4cda-a5ac-c7a6c66ce1c7.png)
 
 # Fegin
 
@@ -360,7 +360,7 @@ Feign集成了Ribbon：通过feign只需要定义服务绑定接口且以声明�
 @EnableFeignClients
 ```
 
-![img](/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/ec955d82-3f57-4355-9e70-8e99bdf72ed4.png)
+![img](a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/ec955d82-3f57-4355-9e70-8e99bdf72ed4.png)
 
 比如student学生微服务中需要调用course课程微服务来添加课程，只需要在student微服务的启动类上添加上述注解，即可开启Fegin通信。
 
@@ -466,7 +466,7 @@ Zuul包含了对请求的路由和过滤两个最主要的功能：
 @EnableZuulProxy
 ```
 
-![img](/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/11df6556-5dfe-4c1d-ac86-b1c3a8147492.png)
+![img](a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/11df6556-5dfe-4c1d-ac86-b1c3a8147492.png)
 
 修改application.yml配置文件，zuul也需要注册进注册中心，所以也需要添加Eureka客户端相关配置
 
@@ -678,7 +678,7 @@ public class WebFilter extends ZuulFilter {
 @EnableTransactionManagerServer
 ```
 
-  ![img](/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/2b57b68c-68c2-47a5-9916-486e978e0ec9.png)
+  ![img](a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/2b57b68c-68c2-47a5-9916-486e978e0ec9.png)
 
   
 
@@ -778,7 +778,7 @@ info.build.version=${project.version}
 
 TM后台访问地址：http://项目实际地址:端口号
 
-![img](/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/91a2de05-6962-4ac8-898d-3b5140accdfb.png)
+![img](a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/91a2de05-6962-4ac8-898d-3b5140accdfb.png)
 
 ## **2、客户端TC**
 
@@ -847,13 +847,13 @@ tm:
 @EnableDistributedTransaction
 ```
 
-![img](/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/863f7aad-e2c1-43c0-9e77-fea74c91e9bf.png)
+![img](a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/863f7aad-e2c1-43c0-9e77-fea74c91e9bf.png)
 
 **无论是调用方，还是被调用方，都需要设置开启分布式事务，如果有任何一方不开启，则分布式事务不生效**
 
 被调用方服务熔断（fegin），应手动给调用方抛出异常，以便回滚分布式事务。（只有调用方抛出异常才能回滚）
 
-![img](/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/4518d0a5-13d4-4890-b9b5-5c2376225122.png)
+![img](a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/4518d0a5-13d4-4890-b9b5-5c2376225122.png)
 
 通过注解**@LcnTransaction**在方法上开启分布式事务，通过注解**@Transactional**开启本地事务，例如：
 
@@ -943,7 +943,7 @@ public class CourseServiceImpl extends ServiceImpl<CourseMapper, Course> impleme
 
 是什么：
 
-![img](/2c2154f6-4be6-4bb8-9275-0c4fe7e11497/128/index_files/61a2d716-a054-41f8-ad92-949ee1c1e59e.jpg)
+![img](2c2154f6-4be6-4bb8-9275-0c4fe7e11497/128/index_files/61a2d716-a054-41f8-ad92-949ee1c1e59e.jpg)
 
 SpringCloud Config为微服务架构中的微服务提供集中化的外部配置支持，配置服务器为各个不同微服务应用的所有环境提供了一个中心化的外部配置。
 
@@ -991,7 +991,7 @@ SpringCloud Config分为服务端和客户端两部分。
 @EnableConfigServer
 ```
 
-![img](/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/e92b66c1-dcd7-4c07-9f88-f52ad528dca6.png)
+![img](a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/e92b66c1-dcd7-4c07-9f88-f52ad528dca6.png)
 
 新建bootstrap.yml
 
@@ -1094,7 +1094,7 @@ spring:
 
 例如，我在zuul微服务和oauth2微服务中添加了配置中心相关配置，使用config来管理配置文件。而eureka-server服务注册中心中不使用config来管理配置文件。
 
-![img](/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/c3144c81-5771-4902-aee1-226363cad764.png)
+![img](a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/c3144c81-5771-4902-aee1-226363cad764.png)
 
 
 
@@ -1216,7 +1216,7 @@ management:
       show-details: always
 ```
 
-![img](/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/06089180-d751-42ef-9127-a89a32f5ff8e.png)
+![img](a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/06089180-d751-42ef-9127-a89a32f5ff8e.png)
 
 ## 3、客户端
 
@@ -1473,7 +1473,7 @@ localhost:8002/student/list
 
 查看控制台内容：
 
-![img](/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/8a0641c1-dde7-4e53-8d0f-7e0df916d3d5.png)
+![img](a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/8a0641c1-dde7-4e53-8d0f-7e0df916d3d5.png)
 
 修改Git仓库上的student-dev.yml配置文件中的word：
 
@@ -1495,11 +1495,11 @@ http://localhost:3355actuator/bus-refresh
 
 可以看到控制台有修改：
 
-![img](/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/c9d5dfc2-93e0-4997-8226-166f51ef0808.png)
+![img](a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/c9d5dfc2-93e0-4997-8226-166f51ef0808.png)
 
 然后再次调用学生服务student中的list请求。控制台查看：
 
-![img](/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/9ea40ed9-1617-477c-b942-248bd44c21c0.png)
+![img](a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/9ea40ed9-1617-477c-b942-248bd44c21c0.png)
 
 # 
 
@@ -1543,7 +1543,7 @@ http://localhost:3355actuator/bus-refresh
 @EnableSwagger2
 ```
 
-![img](/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/029d19d2-008b-4e0e-a19c-f04be28f5614.png)
+![img](a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/029d19d2-008b-4e0e-a19c-f04be28f5614.png)
 
 增加配置类：
 
@@ -1637,7 +1637,7 @@ public class StudentController {
 
 访问地址：http://项目实际地址/swagger-ui.html
 
-![img](/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/17ff1128-e716-49ae-8571-daf08a0b29df.png)
+![img](a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/17ff1128-e716-49ae-8571-daf08a0b29df.png)
 
 # Druid连接池
 
@@ -1726,7 +1726,7 @@ spring:
 
 登录名/密码：admin/123456 (写在了配置文件中)
 
-![img](/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/9d161e2e-895f-4816-9db2-30a48fef1ac3.png)
+![img](a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/9d161e2e-895f-4816-9db2-30a48fef1ac3.png)
 
 # SpringBoot Admin
 
@@ -1838,7 +1838,7 @@ info:
 @EnableAdminServer
 ```
 
-![img](/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/5d42b9c5-053b-4f31-9245-b5e99d8e41aa.png)
+![img](a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/5d42b9c5-053b-4f31-9245-b5e99d8e41aa.png)
 
 增加Security相关配置：
 
@@ -1882,7 +1882,7 @@ public class SecuritySecureConfig extends WebSecurityConfigurerAdapter {
 
 访问：http://项目实际地址:端口号
 
-![img](/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/27a81a73-5e1e-4dc9-85e0-75d41fce3c5d.png)
+![img](a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/27a81a73-5e1e-4dc9-85e0-75d41fce3c5d.png)
 
 # OAuth2 
 
@@ -2999,39 +2999,39 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 先发送一个请求测试一下未认证的效果
 
-![img](/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/7282839c-a829-4dde-ae28-d88bab366f95.png)
+![img](a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/7282839c-a829-4dde-ae28-d88bab366f95.png)
 
 获取认证
 
-![img](/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/13828fcf-f5ca-451d-9100-cc89829b27bf.png)
+![img](a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/13828fcf-f5ca-451d-9100-cc89829b27bf.png)
 
 使用access_token请求auth服务下的用户信息接口
 
-![img](/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/a5817d31-8c92-42cc-bb34-5e21726b2c64.png)
+![img](a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/a5817d31-8c92-42cc-bb34-5e21726b2c64.png)
 
 使用access_token请求member服务下的用户信息接口
 
-![img](/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/103f3748-613c-464a-bfcd-830e79b3c1cb.png)
+![img](a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/103f3748-613c-464a-bfcd-830e79b3c1cb.png)
 
 请求member服务的query接口
 
-![img](/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/e1baf39f-84f8-4ec4-bdff-308db6498b15.png)
+![img](a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/e1baf39f-84f8-4ec4-bdff-308db6498b15.png)
 
 请求member服务的hello接口，数据库里并没有给用户hello权限
 
-![img](/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/ab58aee5-1a5d-4552-ba4b-30cef18d7afd.png)
+![img](a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/ab58aee5-1a5d-4552-ba4b-30cef18d7afd.png)
 
 刷新token
 
-![img](/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/b38f418b-2eba-408b-95c3-90814868cd63.png)
+![img](a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/b38f418b-2eba-408b-95c3-90814868cd63.png)
 
 注销
 
-![img](/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/b7f1a5fb-1936-4708-9d5e-35328ee7236e.png)
+![img](a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/b7f1a5fb-1936-4708-9d5e-35328ee7236e.png)
 
 Postman请求已经导出，在db文件夹下
 
-![img](/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/ecb04e45-d70d-4d73-9609-b95f8cc9fc92.png)
+![img](a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/ecb04e45-d70d-4d73-9609-b95f8cc9fc92.png)
 
 ## 问题：获取认证时返回401
 
@@ -3051,29 +3051,29 @@ Postman请求已经导出，在db文件夹下
 
 原因是在发起请求的时候没有添加Basic Auth认证，如下图：
 
-![img](/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/66251acd-e6cb-49fc-85fe-10bcb4e739d0.png)
+![img](a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/66251acd-e6cb-49fc-85fe-10bcb4e739d0.png)
 
 添加Basic Auth认证后会在headers添加一个认证消息头
 
-![img](/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/31b01d06-33a1-486d-8ab5-5c9ce0e26eda.png)
+![img](a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/31b01d06-33a1-486d-8ab5-5c9ce0e26eda.png)
 
 添加Basic Auth认证的信息在代码中有体现：
 
-![img](/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/e0999a39-65ab-4946-aad8-fe2bdc1dd07c.png)
+![img](a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/e0999a39-65ab-4946-aad8-fe2bdc1dd07c.png)
 
 ## 问题：加密模式获取认证时返回Bad client credentials
 
 SecurityConfig中
 
-![img](/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/e6da11c5-07a5-4ad3-a3f0-1916f4b00883.png)
+![img](a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/e6da11c5-07a5-4ad3-a3f0-1916f4b00883.png)
 
 AuthorizationServerConfig中
 
-![img](/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/cb32f0c4-fc3e-4d38-b745-9d1699e4640a.png)
+![img](a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/cb32f0c4-fc3e-4d38-b745-9d1699e4640a.png)
 
 MyUserDetailService中
 
-![img](/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/d0512e8f-2bfe-4dc7-8879-d414f659116d.png)
+![img](a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/d0512e8f-2bfe-4dc7-8879-d414f659116d.png)
 
 ## **客户端信息和token信息从MySQL数据库中获取**
 
@@ -3085,29 +3085,29 @@ https://github.com/spring-projects/spring-security-oauth/blob/master/spring-secu
 
 其次，需要修改一下sql脚本，把主键的长度改为128，LONGVARBINARY类型改为blob，调整后的sql脚本在db文件夹中
 
-![img](/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/6d63117d-b157-4c19-90cf-2616223ef815.png)
+![img](a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/6d63117d-b157-4c19-90cf-2616223ef815.png)
 
 然后在数据库创建数据表，将客户端信息添加到oauth_client_details表中
 
 **注意**：**如果使用了BCryptPasswordEncoder加密，client_secret需要加密后存储**
 
-![img](/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/76dec7ab-e9f6-40cc-bde1-33b6df299eef.png)
+![img](a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/76dec7ab-e9f6-40cc-bde1-33b6df299eef.png)
 
 修改AuthorizationServerConfig中的三处配置
 
-![img](/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/956f673a-e573-47ce-b28b-7b7c9df98235.png)
+![img](a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/956f673a-e573-47ce-b28b-7b7c9df98235.png)
 
-![img](/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/a7a3d606-efa3-4590-8490-64d7beb84d6c.png)
+![img](a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/a7a3d606-efa3-4590-8490-64d7beb84d6c.png)
 
-![img](/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/226b101f-d8ad-4ca2-94d1-10e6e068ef5c.png)
+![img](a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/226b101f-d8ad-4ca2-94d1-10e6e068ef5c.png)
 
 使用postman调用后
 
 查看数据表，发现token数据已经存到表里了
 
-![img](/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/22a92cd9-66eb-4836-8859-05bd95a7d040.png)
+![img](a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/22a92cd9-66eb-4836-8859-05bd95a7d040.png)
 
-![img](/a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/97169e96-254f-4720-83d1-a8c9b22cbf76.png)
+![img](a6a8e6ec-bf20-4a66-9d7b-4fbd37fb1d26/128/index_files/97169e96-254f-4720-83d1-a8c9b22cbf76.png)
 
 # 面试问题
 
@@ -3121,7 +3121,7 @@ https://github.com/spring-projects/spring-security-oauth/blob/master/spring-secu
 
 ## 3、SpringCloud和Dubbo有哪些区别？
 
-![img](/2c2154f6-4be6-4bb8-9275-0c4fe7e11497/128/index_files/c3953348-069c-4a49-88eb-b0c6ef310306.jpg)
+![img](2c2154f6-4be6-4bb8-9275-0c4fe7e11497/128/index_files/c3953348-069c-4a49-88eb-b0c6ef310306.jpg)
 
 - 通信机制（本质区别）：Dubbo基于RPC远程过程调用，微服务SpringCloud基于Http的RESTful API调用；
 
@@ -3215,7 +3215,7 @@ https://github.com/spring-projects/spring-security-oauth/blob/master/spring-secu
 
 **作为服务注册中心，Eureka比Zookeeper好在哪里：**
 
-![img](/2c2154f6-4be6-4bb8-9275-0c4fe7e11497/128/index_files/b6f8be03-cd3b-4653-bf1c-aef682d878a0.jpg)
+![img](2c2154f6-4be6-4bb8-9275-0c4fe7e11497/128/index_files/b6f8be03-cd3b-4653-bf1c-aef682d878a0.jpg)
 
 著名的CAP理论指出，一个分布式系统不可能同时满足C（一致性）、A（可用性）和P（分区容错性）。由于分区容错性P是分布式系统中必须要保证的，因此我们只能在A和C之间进行权衡。
 
