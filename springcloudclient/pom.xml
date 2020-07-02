@@ -25,7 +25,7 @@
         <codingapi.txlcn.version>5.0.2.RELEASE</codingapi.txlcn.version>
         <mybatis-plus.version>3.0.7.1</mybatis-plus.version>
         <lombok.version>1.16.18</lombok.version>
-        <mysql.version>8.0.11</mysql.version>
+        <mysql.version>8.0.16</mysql.version>
         <druid.version>1.1.10</druid.version>
         <springfox-swagger2.version>2.9.2</springfox-swagger2.version>
         <springfox-swagger-ui.version>2.9.2</springfox-swagger-ui.version>
